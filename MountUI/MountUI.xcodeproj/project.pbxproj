@@ -7,28 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		471769A02A79B39200CE9919 /* MountUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4717699F2A79B39200CE9919 /* MountUI.docc */; };
-		471769A62A79B39200CE9919 /* MountUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4717699B2A79B39200CE9919 /* MountUI.framework */; };
-		471769AB2A79B39200CE9919 /* MountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471769AA2A79B39200CE9919 /* MountUITests.swift */; };
 		471769AC2A79B39200CE9919 /* MountUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4717699E2A79B39200CE9919 /* MountUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD71F3182A79BFB30031841F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD71F3172A79BFB30031841F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		471769A72A79B39200CE9919 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 471769922A79B39200CE9919 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4717699A2A79B39200CE9919;
-			remoteInfo = MountUI;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4717699B2A79B39200CE9919 /* MountUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MountUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4717699E2A79B39200CE9919 /* MountUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountUI.h; sourceTree = "<group>"; };
-		4717699F2A79B39200CE9919 /* MountUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MountUI.docc; sourceTree = "<group>"; };
-		471769A52A79B39200CE9919 /* MountUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MountUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		471769AA2A79B39200CE9919 /* MountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountUITests.swift; sourceTree = "<group>"; };
+		DD71F3172A79BFB30031841F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,14 +25,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		471769A22A79B39200CE9919 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				471769A62A79B39200CE9919 /* MountUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,7 +32,6 @@
 			isa = PBXGroup;
 			children = (
 				4717699D2A79B39200CE9919 /* MountUI */,
-				471769A92A79B39200CE9919 /* MountUITests */,
 				4717699C2A79B39200CE9919 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +40,6 @@
 			isa = PBXGroup;
 			children = (
 				4717699B2A79B39200CE9919 /* MountUI.framework */,
-				471769A52A79B39200CE9919 /* MountUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,17 +48,9 @@
 			isa = PBXGroup;
 			children = (
 				4717699E2A79B39200CE9919 /* MountUI.h */,
-				4717699F2A79B39200CE9919 /* MountUI.docc */,
+				DD71F3172A79BFB30031841F /* Assets.xcassets */,
 			);
 			path = MountUI;
-			sourceTree = "<group>";
-		};
-		471769A92A79B39200CE9919 /* MountUITests */ = {
-			isa = PBXGroup;
-			children = (
-				471769AA2A79B39200CE9919 /* MountUITests.swift */,
-			);
-			path = MountUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,24 +85,6 @@
 			productReference = 4717699B2A79B39200CE9919 /* MountUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		471769A42A79B39200CE9919 /* MountUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 471769B22A79B39200CE9919 /* Build configuration list for PBXNativeTarget "MountUITests" */;
-			buildPhases = (
-				471769A12A79B39200CE9919 /* Sources */,
-				471769A22A79B39200CE9919 /* Frameworks */,
-				471769A32A79B39200CE9919 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				471769A82A79B39200CE9919 /* PBXTargetDependency */,
-			);
-			name = MountUITests;
-			productName = MountUITests;
-			productReference = 471769A52A79B39200CE9919 /* MountUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,9 +96,6 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					4717699A2A79B39200CE9919 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
-					471769A42A79B39200CE9919 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -167,7 +114,6 @@
 			projectRoot = "";
 			targets = (
 				4717699A2A79B39200CE9919 /* MountUI */,
-				471769A42A79B39200CE9919 /* MountUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -177,13 +123,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		471769A32A79B39200CE9919 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				DD71F3182A79BFB30031841F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,27 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				471769A02A79B39200CE9919 /* MountUI.docc in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		471769A12A79B39200CE9919 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				471769AB2A79B39200CE9919 /* MountUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		471769A82A79B39200CE9919 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4717699A2A79B39200CE9919 /* MountUI */;
-			targetProxy = 471769A72A79B39200CE9919 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		471769AD2A79B39200CE9919 /* Debug */ = {
@@ -406,44 +329,6 @@
 			};
 			name = Release;
 		};
-		471769B32A79B39200CE9919 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AppleAcademy.MountUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		471769B42A79B39200CE9919 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AppleAcademy.MountUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -461,15 +346,6 @@
 			buildConfigurations = (
 				471769B02A79B39200CE9919 /* Debug */,
 				471769B12A79B39200CE9919 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		471769B22A79B39200CE9919 /* Build configuration list for PBXNativeTarget "MountUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				471769B32A79B39200CE9919 /* Debug */,
-				471769B42A79B39200CE9919 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
