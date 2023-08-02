@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		471769AC2A79B39200CE9919 /* MountUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4717699E2A79B39200CE9919 /* MountUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */; };
+		DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC74F622A7AF57A00C93A8E /* FontExtension.swift */; };
+		DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF89CC2A7AF76300DDE506 /* testView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4717699B2A79B39200CE9919 /* MountUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MountUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4717699E2A79B39200CE9919 /* MountUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountUI.h; sourceTree = "<group>"; };
 		DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		DDC74F622A7AF57A00C93A8E /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		DDCF89CC2A7AF76300DDE506 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			children = (
 				4717699E2A79B39200CE9919 /* MountUI.h */,
 				DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */,
+				DDC74F622A7AF57A00C93A8E /* FontExtension.swift */,
+				DDCF89CC2A7AF76300DDE506 /* testView.swift */,
 			);
 			path = MountUI;
 			sourceTree = "<group>";
@@ -134,7 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */,
 				DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */,
+				DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
