@@ -41,10 +41,10 @@ struct GenericButton: View {
                     HStack(spacing: 0) {
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
                         
                         Image(systemName: icon)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
                             .padding(.horizontal, 8)
                     }
                 }
@@ -60,10 +60,10 @@ struct GenericButton: View {
                     HStack(spacing: 0) { // fiz o spacing 0 pra quando nao tiver nada
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
                         
                         Image(systemName: icon)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
                             .padding(.horizontal, 8)
                         // e adcionei padding pra ele jogar pro lado ja que o spacing é 0,
                         // adcionando padding horizontal pros 2 lados ele nn quebra pro ladin
