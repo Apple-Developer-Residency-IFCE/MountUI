@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		471769AC2A79B39200CE9919 /* MountUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4717699E2A79B39200CE9919 /* MountUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		47606EF82A7B002000AC342E /* ButtonGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47606EF72A7B002000AC342E /* ButtonGeneric.swift */; };
+		47606EF82A7B002000AC342E /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47606EF72A7B002000AC342E /* GenericButton.swift */; };
 		DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */; };
+		DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */; };
 		DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC74F622A7AF57A00C93A8E /* FontExtension.swift */; };
 		DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF89CC2A7AF76300DDE506 /* testView.swift */; };
 /* End PBXBuildFile section */
@@ -17,8 +18,9 @@
 /* Begin PBXFileReference section */
 		4717699B2A79B39200CE9919 /* MountUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MountUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4717699E2A79B39200CE9919 /* MountUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountUI.h; sourceTree = "<group>"; };
-		47606EF72A7B002000AC342E /* ButtonGeneric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGeneric.swift; sourceTree = "<group>"; };
+		47606EF72A7B002000AC342E /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
 		DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSnackBar.swift; sourceTree = "<group>"; };
 		DDC74F622A7AF57A00C93A8E /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		DDCF89CC2A7AF76300DDE506 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,21 +55,30 @@
 		4717699D2A79B39200CE9919 /* MountUI */ = {
 			isa = PBXGroup;
 			children = (
-				47606EF62A7B000800AC342E /* ButtonGeneric */,
+				DD9C3B532A7C4DFB0030EF4A /* Extensions */,
+				47606EF62A7B000800AC342E /* Components */,
 				4717699E2A79B39200CE9919 /* MountUI.h */,
-				DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */,
-				DDC74F622A7AF57A00C93A8E /* FontExtension.swift */,
 				DDCF89CC2A7AF76300DDE506 /* testView.swift */,
 			);
 			path = MountUI;
 			sourceTree = "<group>";
 		};
-		47606EF62A7B000800AC342E /* ButtonGeneric */ = {
+		47606EF62A7B000800AC342E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				47606EF72A7B002000AC342E /* ButtonGeneric.swift */,
+				47606EF72A7B002000AC342E /* GenericButton.swift */,
+				DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */,
 			);
-			path = ButtonGeneric;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD9C3B532A7C4DFB0030EF4A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */,
+				DDC74F622A7AF57A00C93A8E /* FontExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +164,8 @@
 			files = (
 				DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */,
 				DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */,
-				47606EF82A7B002000AC342E /* ButtonGeneric.swift in Sources */,
+				DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */,
+				47606EF82A7B002000AC342E /* GenericButton.swift in Sources */,
 				DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
