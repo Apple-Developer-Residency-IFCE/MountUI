@@ -35,6 +35,7 @@ struct GenericSnackbar: View {
         HStack{
             Text(text)
                 .foregroundColor(Color.IosiColors.iosiNeutral100)
+                .iosiFont(size: .subheadline, weight: .regular)
             
             Spacer(minLength: 24)
             
@@ -59,7 +60,7 @@ struct content: View {
     @State var isShowing = true
     
     var body: some View {
-        GenericSnackbar(isShowing: $isShowing, color: .red, text: "Teste")
+        GenericSnackbar(isShowing: $isShowing, color: .green, text: "Testeaa")
     }
 }
 
