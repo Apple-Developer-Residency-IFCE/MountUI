@@ -15,8 +15,8 @@ public extension Font {
         case title1 = 28
         case title2 = 22
         case title3 = 20
-        case headline = 17
-        case body = 18
+        case headline = 18
+        case body = 17
         case callout = 16
         case subheadline = 15
         case footnote = 13
@@ -24,15 +24,16 @@ public extension Font {
         case caption2 = 11
     }
     
+    enum fontWeight {
+        case regular
+        case bold
+    }
 }
 
 public extension Text {
     
-    func iosiFont(size: Font.IosiFontTable) -> Self {
-        return size == .headline ?
-        self.font(.custom("SF pro", size: size.rawValue)).bold()
-        :
-        self.font(.custom("SF pro", size: size.rawValue))
+    func iosiFont(size: Font.IosiFontTable, weight: Font.fontWeight) -> Self {
+        return weight == .bold ? self.font(.system( size: size.rawValue).bold()) : self.font(.system( size: size.rawValue))
     }
 
 }
