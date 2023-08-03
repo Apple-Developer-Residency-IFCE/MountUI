@@ -1,5 +1,5 @@
 //
-//  ButtonGeneric.swift
+//  GenericButton.swift
 //  MountUI
 //
 //  Created by Yohanne Moreira on 01/08/23.
@@ -13,13 +13,13 @@ enum Size: CGFloat {
     case minimal = 48
 }
 
-enum TypeButton {
+enum ButtonType {
     case primary
     case secundary
 }
-struct ButtonGeneric: View {
-    var sizeButton: Size
-    var typeButton: TypeButton
+struct GenericButton: View {
+    var buttonSize: Size
+    var buttonType: ButtonType
     var action: () -> Void
     var label: String
     var icon: String
@@ -30,12 +30,12 @@ struct ButtonGeneric: View {
         Button(action: {
             action()
         }, label: {
-            switch typeButton {
+            switch buttonType {
             case .primary:
                 ZStack{
                     
                     RoundedRectangle(cornerRadius: 10)
-                        .frame(width: sizeButton.rawValue, height: 48)
+                        .frame(width: buttonSize.rawValue, height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
                     
                     HStack(spacing: 0) {
@@ -54,7 +54,7 @@ struct ButtonGeneric: View {
                 ZStack{
                     
                     RoundedRectangle(cornerRadius: 10)
-                        .frame(width: sizeButton.rawValue, height: 48)
+                        .frame(width: buttonSize.rawValue, height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
                     
                     HStack(spacing: 0) { // fiz o spacing 0 pra quando nao tiver nada
@@ -77,6 +77,6 @@ struct ButtonGeneric: View {
 
 struct ButtonGeneric_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonGeneric( sizeButton: .large, typeButton: .secundary, action: { print("oi")}, label: "Label", icon: "paperclip")
+        GenericButton( buttonSize: .large, buttonType: .secundary, action: { print("oi")}, label: "Label", icon: "paperclip")
     }
 }
