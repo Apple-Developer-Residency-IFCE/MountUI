@@ -10,7 +10,7 @@ import SwiftUI
 struct testView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .iosiFont(size: .largeTitle)
+            .iosiFont(size: .largeTitle, weight: .bold)
             .foregroundColor(Color.IosiColors.iosiSuccess70)
     }
 }

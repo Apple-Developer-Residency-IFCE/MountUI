@@ -36,19 +36,40 @@ struct ButtonGeneric: View {
                     
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: sizeButton.rawValue, height: 48)
-                        .foregroundColor(colorScheme == .light ? Color.DesignColors.primaryIosiPrimary10 : Color.DesignColors.primaryIosiPrimary70)
+                        .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
                     
-                    HStack {
+                    HStack(spacing: 0) {
                         Text(label)
-                            .font(.custom("Helvetica Neue", size: 16))
-                            .foregroundColor(colorScheme == .light ? Color.DesignColors.neutralsIosiNeutral100 : Color.DesignColors.neutralsIosiNeutral00)
-                        Image(systemName: icon).foregroundColor(colorScheme == .light ? Color.DesignColors.neutralsIosiNeutral100 : Color.DesignColors.neutralsIosiNeutral00)
+                            .iosiFont(size: .body, weight: .bold)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                        
+                        Image(systemName: icon)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                            .padding(.horizontal, 8)
                     }
                 }
+                
+                
             case .secundary:
-                RoundedRectangle(cornerRadius: 10)
-                    // .foregroundColor(Color(color))
-                    .frame(width: sizeButton.rawValue, height: 48)
+                ZStack{
+                    
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: sizeButton.rawValue, height: 48)
+                        .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
+                    
+                    HStack(spacing: 0) { // fiz o spacing 0 pra quando nao tiver nada
+                        Text(label)
+                            .iosiFont(size: .body, weight: .bold)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                        
+                        Image(systemName: icon)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral00)
+                            .padding(.horizontal, 8)
+                        // e adcionei padding pra ele jogar pro lado ja que o spacing é 0,
+                        // adcionando padding horizontal pros 2 lados ele nn quebra pro ladin
+                        // quando nao tem nada
+                    }
+                }
             }
         })
     }
@@ -56,6 +77,6 @@ struct ButtonGeneric: View {
 
 struct ButtonGeneric_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonGeneric( sizeButton: .large, typeButton: .primary, action: { print("oi")}, label: "Ele funciona", icon: "paperclip")
+        ButtonGeneric( sizeButton: .large, typeButton: .secundary, action: { print("oi")}, label: "Label", icon: "paperclip")
     }
 }
