@@ -6,28 +6,30 @@
 	objectVersion = 56;
 	objects = {
 
-/* Begin PBXBuildFile section */
+	/* Begin PBXBuildFile section */
 		471769AC2A79B39200CE9919 /* MountUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4717699E2A79B39200CE9919 /* MountUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4749DDFB2A7C730C00BD18A3 /* SystemIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749DDFA2A7C730C00BD18A3 /* SystemIcons.swift */; };
 		47606EF82A7B002000AC342E /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47606EF72A7B002000AC342E /* GenericButton.swift */; };
 		DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */; };
 		DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */; };
 		DD9C3B572A7C55D00030EF4A /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B562A7C55D00030EF4A /* FilterButton.swift */; };
 		DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC74F622A7AF57A00C93A8E /* FontExtension.swift */; };
 		DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF89CC2A7AF76300DDE506 /* testView.swift */; };
-/* End PBXBuildFile section */
+	/* End PBXBuildFile section */
 
-/* Begin PBXFileReference section */
+	/* Begin PBXFileReference section */
 		4717699B2A79B39200CE9919 /* MountUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MountUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4717699E2A79B39200CE9919 /* MountUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountUI.h; sourceTree = "<group>"; };
+		4749DDFA2A7C730C00BD18A3 /* SystemIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemIcons.swift; sourceTree = "<group>"; };
 		47606EF72A7B002000AC342E /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
 		DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSnackBar.swift; sourceTree = "<group>"; };
 		DD9C3B562A7C55D00030EF4A /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		DDC74F622A7AF57A00C93A8E /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		DDCF89CC2A7AF76300DDE506 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
+	/* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
+	/* Begin PBXFrameworksBuildPhase section */
 		471769982A79B39200CE9919 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -35,9 +37,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXFrameworksBuildPhase section */
+	/* End PBXFrameworksBuildPhase section */
 
-/* Begin PBXGroup section */
+	/* Begin PBXGroup section */
 		471769912A79B39200CE9919 = {
 			isa = PBXGroup;
 			children = (
@@ -57,12 +59,21 @@
 		4717699D2A79B39200CE9919 /* MountUI */ = {
 			isa = PBXGroup;
 			children = (
+				4749DDF92A7C730C00BD18A3 /* Icons */,
 				DD9C3B532A7C4DFB0030EF4A /* Extensions */,
 				47606EF62A7B000800AC342E /* Components */,
 				4717699E2A79B39200CE9919 /* MountUI.h */,
 				DDCF89CC2A7AF76300DDE506 /* testView.swift */,
 			);
 			path = MountUI;
+			sourceTree = "<group>";
+		};
+		4749DDF92A7C730C00BD18A3 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				4749DDFA2A7C730C00BD18A3 /* SystemIcons.swift */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		47606EF62A7B000800AC342E /* Components */ = {
@@ -84,9 +95,9 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-/* End PBXGroup section */
+	/* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
+	/* Begin PBXHeadersBuildPhase section */
 		471769962A79B39200CE9919 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,9 +106,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXHeadersBuildPhase section */
+	/* End PBXHeadersBuildPhase section */
 
-/* Begin PBXNativeTarget section */
+	/* Begin PBXNativeTarget section */
 		4717699A2A79B39200CE9919 /* MountUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 471769AF2A79B39200CE9919 /* Build configuration list for PBXNativeTarget "MountUI" */;
@@ -116,9 +127,9 @@
 			productReference = 4717699B2A79B39200CE9919 /* MountUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-/* End PBXNativeTarget section */
+	/* End PBXNativeTarget section */
 
-/* Begin PBXProject section */
+	/* Begin PBXProject section */
 		471769922A79B39200CE9919 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
@@ -148,9 +159,9 @@
 				4717699A2A79B39200CE9919 /* MountUI */,
 			);
 		};
-/* End PBXProject section */
+	/* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
+	/* Begin PBXResourcesBuildPhase section */
 		471769992A79B39200CE9919 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,14 +169,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+	/* End PBXResourcesBuildPhase section */
 
-/* Begin PBXSourcesBuildPhase section */
+	/* Begin PBXSourcesBuildPhase section */
 		471769972A79B39200CE9919 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */,
+				4749DDFB2A7C730C00BD18A3 /* SystemIcons.swift in Sources */,
 				DD9C3B572A7C55D00030EF4A /* FilterButton.swift in Sources */,
 				DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */,
 				DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */,
@@ -174,9 +186,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXSourcesBuildPhase section */
+	/* End PBXSourcesBuildPhase section */
 
-/* Begin XCBuildConfiguration section */
+	/* Begin XCBuildConfiguration section */
 		471769AD2A79B39200CE9919 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,9 +381,9 @@
 			};
 			name = Release;
 		};
-/* End XCBuildConfiguration section */
+	/* End XCBuildConfiguration section */
 
-/* Begin XCConfigurationList section */
+	/* Begin XCConfigurationList section */
 		471769952A79B39200CE9919 /* Build configuration list for PBXProject "MountUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -390,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-/* End XCConfigurationList section */
+	/* End XCConfigurationList section */
 	};
 	rootObject = 471769922A79B39200CE9919 /* Project object */;
 }
