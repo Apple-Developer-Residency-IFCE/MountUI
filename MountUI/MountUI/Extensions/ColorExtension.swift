@@ -59,7 +59,7 @@ public extension Color {
         public static let iosiNeutral20 = Color(red: 0.1725490242242813, green: 0.1725490242242813, blue: 0.18039216101169586, opacity: 1)
         public static let iosiNeutral10 = Color(red: 0.10980392247438431, green: 0.10980392247438431, blue: 0.11764705926179886, opacity: 1)
         public static let iosiNeutral05 = Color(red: 0.07058823853731155, green: 0.07058823853731155, blue: 0.07058823853731155, opacity: 1)
-        public static let iosiNeutral00 = Color(red: 0, green: 0, blue: 0, opacity: 1)
+        public static let iosiNeutralZero = Color(red: 0, green: 0, blue: 0, opacity: 1)
         
         public static let iosiGradientLight = LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(red: 0.9058823585510254, green: 0.9490196108818054, blue: 0.9843137264251709, opacity: 1), location: 0), Gradient.Stop(color: Color(red: 0.9960784316062927, green: 0.9882352948188782, blue: 0.9372549057006836, opacity: 1), location: 1)]), startPoint: UnitPoint(x: 1, y: 0), endPoint: UnitPoint(x: -5.96046483281043e-8, y: 1.0000000596046483))
         public static let iosiGradientDark = LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(red: 0, green: 0.11372549086809158, blue: 0.19607843458652496, opacity: 1), location: 0), Gradient.Stop(color: Color(red: 0.11692707985639572, green: 0.09566760808229446, blue: 0, opacity: 1), location: 1)]), startPoint: UnitPoint(x: 1, y: 0), endPoint: UnitPoint(x: -5.96046483281043e-8, y: 1.0000000596046483))

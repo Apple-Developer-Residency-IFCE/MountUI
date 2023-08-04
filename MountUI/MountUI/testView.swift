@@ -14,6 +14,9 @@ struct testView: View {
        Image(systemName: iconezinho.rawValue).foregroundColor(.black)
 
 
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            .iosiFont(size: .largeTitle, weight: .bold)
+            .foregroundColor(Color.IosiColors.iosiSuccess70)
     }
 }
 
