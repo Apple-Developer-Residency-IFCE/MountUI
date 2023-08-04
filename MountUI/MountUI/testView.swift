@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct testView: View {
+   var iconezinho: Icon
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .iosiFont(size: .largeTitle)
-            .foregroundColor(Color.IosiColors.iosiSuccess70)
+
+//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//            .iosiFont(size: .largeTitle)
+//            .foregroundColor(Color.IosiColors.iosiSuccess70)
+
+       Image(systemName: iconezinho.rawValue).foregroundColor(.black)
+//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//            .iosiFont(size: .largeTitle, weight: .bold)
+//            .foregroundColor(Color.IosiColors.iosiSuccess70)
+
     }
 }
 
 struct testView_Previews: PreviewProvider {
     static var previews: some View {
-        testView()
+        testView( iconezinho: .speakerWave1)
     }
 }
