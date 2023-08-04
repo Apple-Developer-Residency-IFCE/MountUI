@@ -12,6 +12,7 @@
 		DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */; };
 		DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */; };
 		DD9C3B572A7C55D00030EF4A /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B562A7C55D00030EF4A /* FilterButton.swift */; };
+		DD9C3B5B2A7C78070030EF4A /* SegmentedControlPOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B5A2A7C78070030EF4A /* SegmentedControlPOC.swift */; };
 		DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC74F622A7AF57A00C93A8E /* FontExtension.swift */; };
 		DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF89CC2A7AF76300DDE506 /* testView.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		DD6EF3FA2A79DCF600888BF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSnackBar.swift; sourceTree = "<group>"; };
 		DD9C3B562A7C55D00030EF4A /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		DD9C3B5A2A7C78070030EF4A /* SegmentedControlPOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlPOC.swift; sourceTree = "<group>"; };
 		DDC74F622A7AF57A00C93A8E /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		DDCF89CC2A7AF76300DDE506 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 				47606EF72A7B002000AC342E /* GenericButton.swift */,
 				DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */,
 				DD9C3B562A7C55D00030EF4A /* FilterButton.swift */,
+				DD9C3B5A2A7C78070030EF4A /* SegmentedControlPOC.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */,
 				DD9C3B572A7C55D00030EF4A /* FilterButton.swift in Sources */,
+				DD9C3B5B2A7C78070030EF4A /* SegmentedControlPOC.swift in Sources */,
 				DD6EF3FB2A79DCF600888BF5 /* ColorExtension.swift in Sources */,
 				DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */,
 				47606EF82A7B002000AC342E /* GenericButton.swift in Sources */,
