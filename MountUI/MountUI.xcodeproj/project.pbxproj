@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		471769AC2A79B39200CE9919 /* MountUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4717699E2A79B39200CE9919 /* MountUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4727B82D2A7DBB6B001389B2 /* GenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4727B82C2A7DBB6B001389B2 /* GenericTextField.swift */; };
 		4749DDFB2A7C730C00BD18A3 /* SystemIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749DDFA2A7C730C00BD18A3 /* SystemIcons.swift */; };
 		47606EF82A7B002000AC342E /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47606EF72A7B002000AC342E /* GenericButton.swift */; };
 		DD520E092A7DC8F0000816E3 /* GenericTooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD520E082A7DC8F0000816E3 /* GenericTooltip.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		4717699B2A79B39200CE9919 /* MountUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MountUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4717699E2A79B39200CE9919 /* MountUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountUI.h; sourceTree = "<group>"; };
+		4727B82C2A7DBB6B001389B2 /* GenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextField.swift; sourceTree = "<group>"; };
 		4749DDFA2A7C730C00BD18A3 /* SystemIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemIcons.swift; sourceTree = "<group>"; };
 		47606EF72A7B002000AC342E /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
 		DD520E082A7DC8F0000816E3 /* GenericTooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTooltip.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				47606EF72A7B002000AC342E /* GenericButton.swift */,
 				DD9C3B542A7C4E150030EF4A /* GenericSnackBar.swift */,
 				DD9C3B562A7C55D00030EF4A /* FilterButton.swift */,
+				4727B82C2A7DBB6B001389B2 /* GenericTextField.swift */,
 				DD9C3B602A7DB4C80030EF4A /* SegmentedController.swift */,
 				DD520E082A7DC8F0000816E3 /* GenericTooltip.swift */,
 			);
@@ -191,6 +194,7 @@
 				DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */,
 				47606EF82A7B002000AC342E /* GenericButton.swift in Sources */,
 				DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */,
+				4727B82D2A7DBB6B001389B2 /* GenericTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

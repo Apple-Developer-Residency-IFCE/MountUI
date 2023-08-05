@@ -65,9 +65,6 @@ struct GenericButton: View {
                         Image(systemName: icon)
                             .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
                             .padding(.horizontal, 8)
-                        // e adcionei padding pra ele jogar pro lado ja que o spacing é 0,
-                        // adcionando padding horizontal pros 2 lados ele nn quebra pro ladin
-                        // quando nao tem nada
                     }
                 }
             }
