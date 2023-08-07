@@ -110,7 +110,7 @@ struct GenericTooltip: View {
                     Button {
                         isShowing = false
                     } label: {
-                        Image(systemName: Icon.xmark.rawValue)
+                        Image(systemName: IosiIcon.xmark.rawValue)
                             .foregroundColor(Color.IosiColors.iosiNeutral100)
                             .frame(width: 12, height: rectangleHeight)
                             .padding(.leading, 24)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct testView: View {
-   var iconezinho: Icon
+   var iconezinho: IosiIcon
     var body: some View {
 
        Image(systemName: iconezinho.rawValue).foregroundColor(.black)
