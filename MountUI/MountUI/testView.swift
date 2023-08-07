@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct testView: View {
+    @Environment(\.colorScheme) var colorScheme
+    let iosiColor = Color.IosiColors.self
+    
    var iconezinho: Icon
     var body: some View {
-
-       Image(systemName: iconezinho.rawValue).foregroundColor(.black)
-
-
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .iosiFont(size: .largeTitle, weight: .bold)
-            .foregroundColor(Color.IosiColors.iosiSuccess70)
+        VStack(spacing: 150){
+            
+            
+            //use color like this
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                .iosiFont(size: .largeTitle, weight: .bold)
+                .foregroundColor(iosiColor.getPrimaryColors(colorScheme: colorScheme, for: .background))
+            
+            //instead of this
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                .iosiFont(size: .largeTitle, weight: .bold)
+                .foregroundColor(colorScheme == .light ? iosiColor.iosiPrimary10 : iosiColor.iosiPrimary70)
+            
+        }
     }
 }
 
