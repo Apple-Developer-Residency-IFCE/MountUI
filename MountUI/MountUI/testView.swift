@@ -10,8 +10,7 @@ import SwiftUI
 struct testView: View {
     @Environment(\.colorScheme) var colorScheme
     let iosiColor = Color.IosiColors.self
-    
-   var iconezinho: Icon
+
     var body: some View {
         VStack(spacing: 150){
             

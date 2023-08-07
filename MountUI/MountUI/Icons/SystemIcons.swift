@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Icon: String {
+enum IosiIcon: String {
     case desktopComputer = "play.desktopcomputer"
     case iphoneGen = "iphone.gen2.badge.play"
     case wifi = "wifi"

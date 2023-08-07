@@ -58,7 +58,7 @@ struct GenericButton: View {
                         .frame(width: buttonSize.rawValue, height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
                     
-                    HStack(spacing: 0) { // fiz o spacing 0 pra quando nao tiver nada
+                    HStack(spacing: 0) { 
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
                             .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
