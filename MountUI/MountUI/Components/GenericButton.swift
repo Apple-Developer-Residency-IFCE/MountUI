@@ -26,6 +26,7 @@ struct GenericButton: View {
     
     var activated: Bool = false
     @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         Button(action: {
             action()
