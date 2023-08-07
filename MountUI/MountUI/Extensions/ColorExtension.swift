@@ -16,6 +16,15 @@ public extension Color {
     
     struct IosiColors {
         
+        public enum useOfColor {
+        case under, onTop
+        }
+        
+        public enum surfaceCountainerHeight {
+            case lowest, low, regular, high, highest
+        }
+        
+        
         public static let iosiPrimary90 = Color(red: 0.9098039269447327, green: 0.9490196108818054, blue: 1, opacity: 1)
         public static let iosiPrimary70 = Color(red: 0.2666666805744171, green: 0.5921568870544434, blue: 0.8392156958580017, opacity: 1)
         public static let iosiPrimary50 = Color(red: 0.16078431904315948, green: 0.3803921639919281, blue: 0.5843137502670288, opacity: 1)
@@ -63,6 +72,65 @@ public extension Color {
         
         public static let iosiGradientLight = LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(red: 0.9058823585510254, green: 0.9490196108818054, blue: 0.9843137264251709, opacity: 1), location: 0), Gradient.Stop(color: Color(red: 0.9960784316062927, green: 0.9882352948188782, blue: 0.9372549057006836, opacity: 1), location: 1)]), startPoint: UnitPoint(x: 1, y: 0), endPoint: UnitPoint(x: -5.96046483281043e-8, y: 1.0000000596046483))
         public static let iosiGradientDark = LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(red: 0, green: 0.11372549086809158, blue: 0.19607843458652496, opacity: 1), location: 0), Gradient.Stop(color: Color(red: 0.11692707985639572, green: 0.09566760808229446, blue: 0, opacity: 1), location: 1)]), startPoint: UnitPoint(x: 1, y: 0), endPoint: UnitPoint(x: -5.96046483281043e-8, y: 1.0000000596046483))
+        
+        private func isLightMode(_ colorScheme: ColorScheme) -> Bool {
+            return colorScheme == .light ? true : false
+        }
+        
+        public static func getPrimaryColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+            if Color.IosiColors().isLightMode(colorScheme) {
+                return useOfColor == .under ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiNeutral100
+            } else {
+                return useOfColor == .under ? Color.IosiColors.iosiPrimary70 : Color.IosiColors.iosiNeutral100
+            }
+        }
+        
+        public static func getSuccesColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+            if Color.IosiColors().isLightMode(colorScheme) {
+                return useOfColor == .under ? Color.IosiColors.iosiSuccess30 : Color.IosiColors.iosiSuccess30
+            } else {
+                return useOfColor == .under ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral100
+            }
+        }
+        
+        public static func getProgressColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+            if Color.IosiColors().isLightMode(colorScheme) {
+                return useOfColor == .under ? Color.IosiColors.iosiNeutral50 : Color.IosiColors.iosiNeutral50
+            } else {
+                return useOfColor == .under ? Color.IosiColors.iosiSuccess50 : Color.IosiColors.iosiSuccess50
+            }
+        }
+        
+        public static func getErrorColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+            if Color.IosiColors().isLightMode(colorScheme) {
+                return useOfColor == .under ? Color.IosiColors.iosiError50 : Color.IosiColors.iosiError50
+            } else {
+                return useOfColor == .under ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral100
+            }
+        }
+        
+        public static func getInfoColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+            if Color.IosiColors().isLightMode(colorScheme) {
+                return useOfColor == .under ? Color.IosiColors.iosiInfo30 : Color.IosiColors.iosiInfo30
+            } else {
+                return useOfColor == .under ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral100
+            }
+        }
+        
+        public static func getSurfaceContainerColor(colorScheme: ColorScheme, height: surfaceCountainerHeight) -> Color {
+            switch height {
+            case .lowest:
+                return Color.IosiColors.iosiNeutral100
+            case .low:
+                return Color.IosiColors.iosiNeutral93
+            case .regular:
+                return Color.IosiColors.iosiNeutral40
+            case .high:
+                return Color.IosiColors.iosiNeutral10
+            case .highest:
+                return Color.IosiColors.iosiNeutralZero
+            }
+        }
     }
 }
 
