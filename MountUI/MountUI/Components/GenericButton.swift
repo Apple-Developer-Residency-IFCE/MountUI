@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-enum Size: CGFloat {
+public enum Size: CGFloat {
     case large = 343
     case small = 158
     case minimal = 48
 }
 
-enum ButtonType {
+public enum ButtonType {
     case primary
     case secundary
 }
 
-enum ButtonState {
+public enum ButtonState {
     case active
     case inactive
 }
 
-struct GenericButton: View {
+public struct GenericButton: View {
     @Environment(\.colorScheme) var colorScheme
     
     let iosiColors = Color.IosiColors.self
@@ -38,7 +38,16 @@ struct GenericButton: View {
     
     let action: () -> Void
     
-    var body: some View {
+    public init(buttonSize: Size, buttonType: ButtonType, buttonState: ButtonState, label: String, icon: String, action: @escaping () -> Void) {
+        self.buttonSize = buttonSize
+        self.buttonType = buttonType
+        self.buttonState = buttonState
+        self.label = label
+        self.icon = icon
+        self.action = action
+    }
+    
+    public var body: some View {
         switch buttonState {
         case .active:
             Button(action: {

@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-enum Placement {
+public enum Placement {
     case left, right
 }
 
-enum TooltipWidth: CGFloat {
+public enum TooltipWidth: CGFloat {
     case big = 359
     case small = 327
 }
 
-enum TooltipHeight: CGFloat {
+public enum TooltipHeight: CGFloat {
     case tall = 104
     case little = 72
 }
 
-struct GenericTooltip: View {
+public struct GenericTooltip: View {
     @Binding var isShowing: Bool
     
     @Environment(\.colorScheme) var colorScheme
@@ -38,16 +38,10 @@ struct GenericTooltip: View {
     
     let hasTitle: Bool
     
-    init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String? = "") {
+    public init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String? = "") {
         self._isShowing = isShowing
         self.trianglePlacement = trianglePlacement
         self.insideText = insideText
-        
-//        if colorScheme == .light {
-//            color = Color.IosiColors.iosiInfo50
-//        } else {
-//            color = Color.IosiColors.iosiInfo30
-//        }
 
         if titleText == "" {
             
@@ -65,7 +59,7 @@ struct GenericTooltip: View {
         self.hasTitle = true
     }
     
-    var body: some View {
+    public var body: some View {
         
         VStack(spacing: -8){
             

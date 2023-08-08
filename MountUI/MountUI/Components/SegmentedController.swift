@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Segment: View {
+public struct Segment: View {
     
     var label: String
     var width: CGFloat
@@ -18,7 +18,7 @@ struct Segment: View {
     
     @Binding var selectBinding: Int
     
-    init(label: String, width: CGFloat, index: Int, selectBinding: Binding<Int>) {
+    public init(label: String, width: CGFloat, index: Int, selectBinding: Binding<Int>) {
         self.label = label
         self.width = width
         self.index = index
@@ -34,7 +34,7 @@ struct Segment: View {
         
     }
     
-    var body: some View {
+    public var body: some View {
         Button {
             selectBinding = index
         } label: {
