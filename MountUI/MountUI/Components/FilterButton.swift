@@ -7,13 +7,7 @@
 
 import SwiftUI
 
-//types created in generic button file
-//enum ButtonType {
-//    case primary
-//    case secundary
-//}
-
-struct FilterButton: View {
+ public struct FilterButton: View {
     
     let buttonType: ButtonType
     let action: () -> Void
@@ -40,7 +34,7 @@ struct FilterButton: View {
         }
     }
     
-    var body: some View {
+     public var body: some View {
         Button {
             action()
         } label: {
@@ -66,7 +60,7 @@ struct FilterButton: View {
     }
 }
 
-extension FilterButton {
+public extension FilterButton {
     
     static func getPrimaryColors(colorScheme: ColorScheme) -> [Color] {
         
@@ -90,7 +84,7 @@ struct content1: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        FilterButton(buttonType: .primary, colorScheme: colorScheme, text: "Test Course Name, Very Big Label (TCNVBL)", action: {print("a")})
+        FilterButton(buttonType: .secundary, colorScheme: colorScheme, text: "Test Course Name, Very Big Label (TCNVBL)", action: {print("a")})
     }
 }
 

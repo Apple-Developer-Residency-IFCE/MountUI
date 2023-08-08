@@ -25,6 +25,12 @@ struct GenericTextField: View {
     
     var type: TypeTextField
     
+    init(input: Binding<String>, openFile: Binding<Bool>, type: TypeTextField) {
+        self._input = input
+        self._openFile = openFile
+        self.type = type
+    }
+    
     var body: some View {
         switch type {
         case .email:
@@ -153,7 +159,7 @@ struct teste: View {
     @State var openFile = false
     
     var body: some View {
-        GenericTextField(input: $inputTest, openFile: $openFile, type: .file)
+        GenericTextField(input: $inputTest, openFile: $openFile, type: .email)
     }
 }
 
