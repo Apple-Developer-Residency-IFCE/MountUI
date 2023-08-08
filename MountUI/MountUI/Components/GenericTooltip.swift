@@ -24,6 +24,10 @@ enum TooltipHeight: CGFloat {
 struct GenericTooltip: View {
     @Binding var isShowing: Bool
     
+    @Environment(\.colorScheme) var colorScheme
+    
+    let iosiColor = Color.IosiColors.self
+    
     let trianglePlacement: Placement
     
     let insideText: String
@@ -33,21 +37,18 @@ struct GenericTooltip: View {
     let rectangleHeight: CGFloat
     
     let hasTitle: Bool
-    let color: Color
     
-    init(isShowing: Binding<Bool>, trianglePlacement: Placement, colorScheme: ColorScheme , insideText: String, titleText: String? = "") {
+    init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String? = "") {
         self._isShowing = isShowing
         self.trianglePlacement = trianglePlacement
         self.insideText = insideText
         
-        if colorScheme == .light {
-            color = Color.IosiColors.iosiInfo50
-        } else {
-            color = Color.IosiColors.iosiInfo30
-        }
-        
-        
-        
+//        if colorScheme == .light {
+//            color = Color.IosiColors.iosiInfo50
+//        } else {
+//            color = Color.IosiColors.iosiInfo30
+//        }
+
         if titleText == "" {
             
             self.titleText = titleText
@@ -72,13 +73,13 @@ struct GenericTooltip: View {
             Triangle()
                 .frame(width: 26, height: 18)
                 .padding(trianglePlacement == .left ? .trailing : .leading, 229)
-                .foregroundColor(color)
+                .foregroundColor(iosiColor.getInfoColors(colorScheme: colorScheme, for: .under))
             
             
             
             ZStack(alignment: .leading){
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(color)
+                    .foregroundColor(iosiColor.getInfoColors(colorScheme: colorScheme, for: .under))
                 
                 HStack{
                     if hasTitle {
@@ -146,7 +147,7 @@ struct content2: View {
     @State var isShowing = true
     
     var body: some View {
-        GenericTooltip(isShowing: $isShowing, trianglePlacement: .left, colorScheme: colorScheme ,  insideText: "Tap the heart to add this session to your Favorites for easier access.", titleText: "Add to favourites")
+        GenericTooltip(isShowing: $isShowing, trianglePlacement: .left, insideText: "Tap the heart to add this session to your Favorites for easier access.", titleText: "Add to favourites")
     }
 }
 

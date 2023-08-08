@@ -16,21 +16,11 @@ struct GenericSnackbar: View {
     
     @Binding var isShowing: Bool
     
+    @Environment(\.colorScheme) var colorScheme
+    
     let text: String
     let color: SnackbarColor
-    private let actualColor: Color
-    
-    init(isShowing: Binding<Bool>, color: SnackbarColor, text: String) {
-        self._isShowing = isShowing
-        self.text = text
-        self.color = color
-        
-        self.actualColor = color == .green ?
-        Color.IosiColors.iosiSuccess30 :
-        Color.IosiColors.iosiError50
-        
-    }
-    
+    let iosiColor = Color.IosiColors.self
     var body: some View {
         HStack{
             Text(text)
@@ -51,7 +41,7 @@ struct GenericSnackbar: View {
         .frame(width: 360, height: .infinity)
         .background(){
             RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(actualColor)
+                .foregroundColor(color == .green ? iosiColor.getSuccesColors(colorScheme: colorScheme, for: .under) : iosiColor.getErrorColors(colorScheme: colorScheme, for: .under))
         }
     }
 }
@@ -60,7 +50,7 @@ struct content: View {
     @State var isShowing = true
     
     var body: some View {
-        GenericSnackbar(isShowing: $isShowing, color: .green, text: "Testeaa")
+        GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .red)
     }
 }
 

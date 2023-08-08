@@ -87,9 +87,9 @@ public extension Color {
         
         public static func getSuccesColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
-                return useOfColor == .under ? Color.IosiColors.iosiSuccess30 : Color.IosiColors.iosiSuccess30
+                return useOfColor == .under ? Color.IosiColors.iosiSuccess30 : Color.IosiColors.iosiNeutral100
             } else {
-                return useOfColor == .under ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral100
+                return useOfColor == .under ? Color.IosiColors.iosiSuccess30 : Color.IosiColors.iosiNeutral100
             }
         }
         
@@ -103,17 +103,17 @@ public extension Color {
         
         public static func getErrorColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
-                return useOfColor == .under ? Color.IosiColors.iosiError50 : Color.IosiColors.iosiError50
+                return useOfColor == .under ? Color.IosiColors.iosiError50 : Color.IosiColors.iosiNeutral100
             } else {
-                return useOfColor == .under ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral100
+                return useOfColor == .under ? Color.IosiColors.iosiError50 : Color.IosiColors.iosiNeutral100
             }
         }
         
         public static func getInfoColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
-                return useOfColor == .under ? Color.IosiColors.iosiInfo30 : Color.IosiColors.iosiInfo30
+                return useOfColor == .under ? Color.IosiColors.iosiInfo50 : Color.IosiColors.iosiNeutral100
             } else {
-                return useOfColor == .under ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutral100
+                return useOfColor == .under ? Color.IosiColors.iosiInfo30 : Color.IosiColors.iosiNeutral100
             }
         }
         
