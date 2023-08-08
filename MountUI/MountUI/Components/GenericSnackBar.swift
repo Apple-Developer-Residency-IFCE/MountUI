@@ -22,7 +22,7 @@ public struct GenericSnackbar: View {
     let color: SnackbarColor
     let iosiColor = Color.IosiColors.self
     
-    init(isShowing: Binding<Bool>, text: String, color: SnackbarColor) {
+    public init(isShowing: Binding<Bool>, text: String, color: SnackbarColor) {
         self._isShowing = isShowing
         self.text = text
         self.color = color

@@ -17,7 +17,7 @@ import SwiftUI
     let textColor: Color
     let buttonColor: Color
     
-    init(buttonType: ButtonType, colorScheme: ColorScheme, text: String ,action: @escaping () -> Void) {
+    public init(buttonType: ButtonType, colorScheme: ColorScheme, text: String ,action: @escaping () -> Void) {
         self.buttonType = buttonType
         self.action = action
         
