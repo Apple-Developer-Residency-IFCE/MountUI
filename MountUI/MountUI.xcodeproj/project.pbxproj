@@ -17,7 +17,6 @@
 		DD9C3B572A7C55D00030EF4A /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B562A7C55D00030EF4A /* FilterButton.swift */; };
 		DD9C3B612A7DB4C80030EF4A /* SegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C3B602A7DB4C80030EF4A /* SegmentedController.swift */; };
 		DDC74F632A7AF57A00C93A8E /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC74F622A7AF57A00C93A8E /* FontExtension.swift */; };
-		DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF89CC2A7AF76300DDE506 /* testView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		DD9C3B562A7C55D00030EF4A /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		DD9C3B602A7DB4C80030EF4A /* SegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedController.swift; sourceTree = "<group>"; };
 		DDC74F622A7AF57A00C93A8E /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
-		DDCF89CC2A7AF76300DDE506 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 				DD9C3B532A7C4DFB0030EF4A /* Extensions */,
 				47606EF62A7B000800AC342E /* Components */,
 				4717699E2A79B39200CE9919 /* MountUI.h */,
-				DDCF89CC2A7AF76300DDE506 /* testView.swift */,
 			);
 			path = MountUI;
 			sourceTree = "<group>";
@@ -193,7 +190,6 @@
 				DD9C3B612A7DB4C80030EF4A /* SegmentedController.swift in Sources */,
 				DD9C3B552A7C4E150030EF4A /* GenericSnackBar.swift in Sources */,
 				47606EF82A7B002000AC342E /* GenericButton.swift in Sources */,
-				DDCF89CD2A7AF76300DDE506 /* testView.swift in Sources */,
 				4727B82D2A7DBB6B001389B2 /* GenericTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
