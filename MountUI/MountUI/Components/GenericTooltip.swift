@@ -22,23 +22,23 @@ public enum TooltipHeight: CGFloat {
 }
 
 public struct GenericTooltip: View {
-    @Binding var isShowing: Bool
-    
     @Environment(\.colorScheme) var colorScheme
+    
+    @Binding var isShowing: Bool
     
     let iosiColor = Color.IosiColors.self
     
     let trianglePlacement: Placement
     
     let insideText: String
-    let titleText: String?
+    let titleText: String
     
     let rectangleWidth: CGFloat
     let rectangleHeight: CGFloat
     
     let hasTitle: Bool
     
-    public init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String? = "") {
+    public init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String) {
         self._isShowing = isShowing
         self.trianglePlacement = trianglePlacement
         self.insideText = insideText
@@ -78,7 +78,7 @@ public struct GenericTooltip: View {
                 HStack{
                     if hasTitle {
                         VStack(alignment: .leading) {
-                            Text(titleText ?? "No Title")
+                            Text(titleText)
                                 .iosiFont(size: .body, weight: .bold)
                                 .foregroundColor(Color.IosiColors.iosiNeutral100)
                                 .padding(.top, 19)
