@@ -25,7 +25,7 @@ public struct GenericTextField: View {
     
     var type: TypeTextField
     
-    init(input: Binding<String>, openFile: Binding<Bool>, type: TypeTextField) {
+    public init(input: Binding<String>, openFile: Binding<Bool>, type: TypeTextField) {
         self._input = input
         self._openFile = openFile
         self.type = type
