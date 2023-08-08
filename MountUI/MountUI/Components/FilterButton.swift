@@ -60,6 +60,7 @@ public enum SizeFilterButton: CGFloat {
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
                     .foregroundColor(textColor)
+                    .frame(width: size.rawValue, height: 34)
             }
                 .foregroundColor(buttonColor)
         }
