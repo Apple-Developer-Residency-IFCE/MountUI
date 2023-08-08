@@ -18,7 +18,7 @@ struct testView: View {
             //use color like this
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                 .iosiFont(size: .largeTitle, weight: .bold)
-                .foregroundColor(iosiColor.getPrimaryColors(colorScheme: colorScheme, for: .background))
+                .foregroundColor(iosiColor.getPrimaryColors(colorScheme: colorScheme, for: .under))
             
             //instead of this
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -31,6 +31,6 @@ struct testView: View {
 
 struct testView_Previews: PreviewProvider {
     static var previews: some View {
-        testView( iconezinho: .docPlaintFill)
+        testView()
     }
 }
