@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-enum SnackbarColor {
+public enum SnackbarColor {
     case green
     case red
 }
 
-struct GenericSnackbar: View {
+public struct GenericSnackbar: View {
     
     @Binding var isShowing: Bool
     
@@ -21,7 +21,14 @@ struct GenericSnackbar: View {
     let text: String
     let color: SnackbarColor
     let iosiColor = Color.IosiColors.self
-    var body: some View {
+    
+    init(isShowing: Binding<Bool>, text: String, color: SnackbarColor) {
+        self._isShowing = isShowing
+        self.text = text
+        self.color = color
+    }
+    
+    public var body: some View {
         HStack{
             Text(text)
                 .foregroundColor(Color.IosiColors.iosiNeutral100)
@@ -50,7 +57,7 @@ struct content: View {
     @State var isShowing = true
     
     var body: some View {
-        GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .red)
+        GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .green)
     }
 }
 
