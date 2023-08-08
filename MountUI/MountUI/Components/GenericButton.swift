@@ -17,64 +17,116 @@ enum ButtonType {
     case primary
     case secundary
 }
+
+enum ButtonState {
+    case active
+    case inactive
+}
+
 struct GenericButton: View {
-    var buttonSize: Size
-    var buttonType: ButtonType
-    var action: () -> Void
-    var label: String
-    var icon: String
-    
-    var activated: Bool = false
     @Environment(\.colorScheme) var colorScheme
     
+    let iosiColors = Color.IosiColors.self
+    
+    let buttonSize: Size
+    let buttonType: ButtonType
+    var buttonState: ButtonState
+    
+    let label: String
+    let icon: String
+    let activated: Bool = false
+    
+    let action: () -> Void
+    
     var body: some View {
-        Button(action: {
-            action()
-        }, label: {
+        switch buttonState {
+        case .active:
+            Button(action: {
+                action()
+            }, label: {
+                switch buttonType {
+                case .primary:
+                    ZStack{
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: buttonSize.rawValue, height: 48)
+                            .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                        
+                        HStack(spacing: 0) {
+                            Text(label)
+                                .iosiFont(size: .body, weight: .bold)
+                                .foregroundColor(iosiColors.iosiNeutral100)
+                            
+                            Image(systemName: icon)
+                                .foregroundColor(iosiColors.iosiNeutral100)
+                                .padding(.horizontal, 8)
+                        }
+                    }
+                case .secundary:
+                    ZStack{
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke()
+                            .frame(width: buttonSize.rawValue, height: 48)
+                            .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                        
+                        HStack(spacing: 0) {
+                            Text(label)
+                                .iosiFont(size: .body, weight: .bold)
+                                .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                            
+                            Image(systemName: icon)
+                                .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                                .padding(.horizontal, 8)
+                        }
+                    }
+                }
+            })
+        case .inactive:
             switch buttonType {
             case .primary:
                 ZStack{
                     
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: buttonSize.rawValue, height: 48)
-                        .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
+                        .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral93 : Color.IosiColors.iosiNeutral10)
                     
                     HStack(spacing: 0) {
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
                         
                         Image(systemName: icon)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
                             .padding(.horizontal, 8)
                     }
                 }
-                
-                
             case .secundary:
                 ZStack{
                     
                     RoundedRectangle(cornerRadius: 10)
+                        .stroke()
                         .frame(width: buttonSize.rawValue, height: 48)
-                        .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiPrimary70)
+                        .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
                     
-                    HStack(spacing: 0) { 
+                    HStack(spacing: 0) {
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral90 : Color.IosiColors.iosiNeutral40)
                         
                         Image(systemName: icon)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral100 : Color.IosiColors.iosiNeutralZero)
+                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral90 : Color.IosiColors.iosiNeutral40)
                             .padding(.horizontal, 8)
                     }
                 }
             }
-        })
+        }
+        
     }
 }
 
 struct ButtonGeneric_Previews: PreviewProvider {
     static var previews: some View {
-        GenericButton( buttonSize: .large, buttonType: .secundary, action: { print("oi")}, label: "Label", icon: "paperclip")
+        GenericButton(buttonSize: .large, buttonType: .primary, buttonState: .active, label: "Label", icon: IosiIcon.paperclip.rawValue , action: {print("a")})
     }
 }

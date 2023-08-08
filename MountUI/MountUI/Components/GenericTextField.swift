@@ -9,17 +9,18 @@ import SwiftUI
 
 enum TypeTextField {
     case email
-    case senha
-    case arquivo
-    case duvidaTalk
-    case codigoTalk
-    case comentarioTalk
+    case password
+    case file
+    case questionTalk
+    case passcodeTalk
+    case comentaryTalk
 }
 struct GenericTextField: View {
     @Environment(\.colorScheme) var colorScheme
+    
     @State private var isSecured: Bool = true
+    @State var fileName: String = ""
     @Binding var input: String
-    @Binding var fileName: String
     @Binding var openFile: Bool
     
     var type: TypeTextField
@@ -35,7 +36,7 @@ struct GenericTextField: View {
                     .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                     .cornerRadius(10)
             
-        case .senha:
+        case .password:
                 ZStack(alignment: .trailing) {
                     Group {
                         if isSecured {
@@ -58,7 +59,7 @@ struct GenericTextField: View {
                 .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                 .cornerRadius(10)
 
-        case .arquivo:
+        case .file:
             
             VStack{
                 if fileName.isEmpty {
@@ -69,7 +70,7 @@ struct GenericTextField: View {
                             Image(systemName: IosiIcon.arrowUpDoc.rawValue)
                                 .foregroundColor(Color.IosiColors.iosiPrimary30)
                                 .padding(.bottom, 10)
-                            Text("Selecione um arquivo")
+                            Text("Selecione um file")
                                 .iosiFont(size: .subheadline, weight: .regular)
                                 .foregroundColor(Color.IosiColors.iosiPrimary30)
                         }
@@ -108,7 +109,7 @@ struct GenericTextField: View {
             .background(Color(red: 0.95, green: 0.95, blue: 0.97))
             .cornerRadius(10)
 
-        case .duvidaTalk:
+        case .questionTalk:
              HStack{
                 TextField("Escreva uma mensagem", text: $input)
                     .font(Font.custom("SF Pro", size: 15))
@@ -121,7 +122,7 @@ struct GenericTextField: View {
                 .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                 .cornerRadius(10)
             
-        case .codigoTalk:
+        case .passcodeTalk:
             
                 TextField("xxx-xxxx-xxx", text: $input)
                     .font(Font.custom("SF Pro", size: 15))
@@ -132,10 +133,9 @@ struct GenericTextField: View {
                     .cornerRadius(10)
                 
             
-        case .comentarioTalk:
-                Text("Comentário para o(a) professor(a)")
+        case .comentaryTalk:
+            TextField("Comentário para o(a) professor(a)", text: $input)
                   .font(Font.custom("SF Pro", size: 15))
-                  .multilineTextAlignment(.center)
                   .foregroundColor(Color(red: 0.56, green: 0.56, blue: 0.58))
                     .padding(.horizontal, 20)
                     .padding(.vertical, 15)
@@ -150,11 +150,10 @@ struct GenericTextField: View {
 
 struct teste: View {
     @State var inputTest: String = ""
-    @State var fileName = ""
     @State var openFile = false
     
     var body: some View {
-        GenericTextField(input: $inputTest, fileName: $fileName, openFile: $openFile, type: .comentarioTalk)
+        GenericTextField(input: $inputTest, openFile: $openFile, type: .file)
     }
 }
 
