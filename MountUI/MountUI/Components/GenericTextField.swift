@@ -20,14 +20,13 @@ public struct GenericTextField: View {
     
     @State private var isSecured: Bool = true
     @State var fileName: String = ""
+    @State var openFile: Bool = false
     @Binding var input: String
-    @Binding var openFile: Bool
     
     var type: TypeTextField
     
-    public init(input: Binding<String>, openFile: Binding<Bool>, type: TypeTextField) {
+    public init(input: Binding<String>, type: TypeTextField) {
         self._input = input
-        self._openFile = openFile
         self.type = type
     }
     
@@ -76,7 +75,7 @@ public struct GenericTextField: View {
                             Image(systemName: IosiIcon.arrowUpDoc.rawValue)
                                 .foregroundColor(Color.IosiColors.iosiPrimary30)
                                 .padding(.bottom, 10)
-                            Text("Selecione um file")
+                            Text("Selecione um arquivo")
                                 .iosiFont(size: .subheadline, weight: .regular)
                                 .foregroundColor(Color.IosiColors.iosiPrimary30)
                         }
@@ -156,10 +155,9 @@ public struct GenericTextField: View {
 
 struct teste: View {
     @State var inputTest: String = ""
-    @State var openFile = false
     
     var body: some View {
-        GenericTextField(input: $inputTest, openFile: $openFile, type: .email)
+        GenericTextField(input: $inputTest, type: .file)
     }
 }
 
