@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TypeTextField {
+public enum TypeTextField {
     case email
     case password
     case file
@@ -15,7 +15,7 @@ enum TypeTextField {
     case passcodeTalk
     case comentaryTalk
 }
-struct GenericTextField: View {
+public struct GenericTextField: View {
     @Environment(\.colorScheme) var colorScheme
     
     @State private var isSecured: Bool = true
@@ -31,7 +31,7 @@ struct GenericTextField: View {
         self.type = type
     }
     
-    var body: some View {
+    public var body: some View {
         switch type {
         case .email:
                 TextField("E-mail", text: $input)
