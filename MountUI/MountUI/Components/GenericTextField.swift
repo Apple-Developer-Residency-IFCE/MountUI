@@ -24,10 +24,12 @@ public struct GenericTextField: View {
     @Binding var input: String
     
     var type: TypeTextField
+    var action: () -> Void
     
-    public init(input: Binding<String>, type: TypeTextField) {
+    public init(input: Binding<String>, type: TypeTextField, action:@escaping () -> Void = {}) {
         self._input = input
         self.type = type
+        self.action = action
     }
     
     public var body: some View {
@@ -115,17 +117,24 @@ public struct GenericTextField: View {
             .cornerRadius(10)
 
         case .questionTalk:
-             HStack{
+            HStack {
+                    
                 TextField("Escreva uma mensagem", text: $input)
+                    .frame(alignment: .leading)
                     .font(Font.custom("SF Pro", size: 15))
                 
-                Image(systemName: IosiIcon.paperplane.rawValue)
-                 
+                Button(action: {
+                   action()
+                }, label: {
+                    Image(systemName: IosiIcon.paperplane.rawValue)
+                            .foregroundColor(Color.IosiColors.iosiPrimary10)
+                            .rotationEffect(.degrees(45))
+                })
             }.padding(.horizontal, 20)
-                .padding(.vertical, 15)
-                .frame(width: 343, height: 48, alignment: .leading)
-                .background(Color(red: 0.95, green: 0.95, blue: 0.97))
-                .cornerRadius(10)
+                    .padding(.vertical, 15)
+                    .frame(width: 343, height: 48)
+                    .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+                    .cornerRadius(10)
             
         case .passcodeTalk:
             
@@ -157,7 +166,7 @@ struct teste: View {
     @State var inputTest: String = ""
     
     var body: some View {
-        GenericTextField(input: $inputTest, type: .file)
+        GenericTextField(input: $inputTest, type: .questionTalk)
     }
 }
 
