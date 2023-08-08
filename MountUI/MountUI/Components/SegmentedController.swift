@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Segment: View {
+public struct Segment: View {
     
     var label: String
     var width: CGFloat
@@ -18,7 +18,7 @@ struct Segment: View {
     
     @Binding var selectBinding: Int
     
-    init(label: String, width: CGFloat, index: Int, selectBinding: Binding<Int>) {
+    public init(label: String, width: CGFloat, index: Int, selectBinding: Binding<Int>) {
         self.label = label
         self.width = width
         self.index = index
@@ -34,7 +34,7 @@ struct Segment: View {
         
     }
     
-    var body: some View {
+    public var body: some View {
         Button {
             selectBinding = index
         } label: {
@@ -56,7 +56,7 @@ struct Segment: View {
     }
 }
 
-struct SegmentedControllerPOC: View {
+public struct SegmentedController: View {
     
     var titles: [String]
     var segmentSize: CGFloat
@@ -74,7 +74,7 @@ struct SegmentedControllerPOC: View {
         }
     }
     
-    var body: some View {
+    public var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 0) {
@@ -92,7 +92,7 @@ struct content3: View {
     @State var screen: Int = 0
     
     var body: some View {
-        SegmentedControllerPOC(titles: ["First", "Second", "Third", "Forth"], selectedScreen: $screen)
+        SegmentedController(titles: ["First", "Second", "Third", "Forth"], selectedScreen: $screen)
     }
 }
 
