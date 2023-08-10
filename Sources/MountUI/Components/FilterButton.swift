@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+
 public enum SizeFilterButton: CGFloat {
     // para filtros com mais de 13 caracteres e menos de 21
-    case big = 171
+    case big = 166
     // para filtros com 31 ou menos caracteres
-    case small = 112
+    case small = 109
 }
 
  public struct FilterButton: View {
@@ -24,12 +25,13 @@ public enum SizeFilterButton: CGFloat {
     let textColor: Color
     let buttonColor: Color
     
-     public init(buttonType: ButtonType, colorScheme: ColorScheme, size: SizeFilterButton, text: String ,action: @escaping () -> Void) {
+     public init(buttonType: ButtonType, colorScheme: ColorScheme, text: String ,action: @escaping () -> Void) {
         self.buttonType = buttonType
         self.action = action
-        self.size = size
         self.labelText = text
         
+        self.size = FilterButton.getAutoSize(text: text)
+         
         if buttonType == .primary {
             let colors = FilterButton.getPrimaryColors(colorScheme: colorScheme)
             textColor = colors[0]
@@ -86,13 +88,17 @@ public extension FilterButton {
             return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiNeutral100]
         }
     }
+    
+    static func getAutoSize(text: String) -> SizeFilterButton {
+        return text.count < 11 ? .big : .small
+    }
 }
 
 struct content1: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        FilterButton(buttonType: .secundary, colorScheme: colorScheme, size: .big, text: "Test Course", action: {print("a")})
+        FilterButton(buttonType: .primary, colorScheme: colorScheme, text: "Course Nam", action: {print("a")})
     }
 }
 
