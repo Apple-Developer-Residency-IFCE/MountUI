@@ -90,7 +90,7 @@ public extension FilterButton {
     }
     
     static func getAutoSize(text: String) -> SizeFilterButton {
-        return text.count < 11 ? .big : .small
+        return text.count < 11 ? .small : .big
     }
 }
 
