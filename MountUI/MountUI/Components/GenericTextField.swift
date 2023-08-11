@@ -7,35 +7,48 @@
 
 import SwiftUI
 
-enum TypeTextField {
-    case email
-    case senha
-    case arquivo
-    case duvidaTalk
-    case codigoTalk
-    case comentarioTalk
+public enum TypeTextField {
+    case generic
+    case password
+    case file
+    case questionTalk
+    case passcodeTalk
+    case comentaryTalk
 }
-struct GenericTextField: View {
+public struct GenericTextField: View {
     @Environment(\.colorScheme) var colorScheme
+    
     @State private var isSecured: Bool = true
+    @State var fileName: String = ""
+    @State var openFile: Bool = false
     @Binding var input: String
-    @Binding var fileName: String
-    @Binding var openFile: Bool
     
     var type: TypeTextField
+    var action: () -> Void
+    var label: String
+    var sizeWidth: CGFloat
+    var sizeHeight: CGFloat
+    public init(input: Binding<String>, type: TypeTextField, action:@escaping () -> Void = {}, label: String = " ", sizeWidth: CGFloat = 343, sizeHeight: CGFloat = 48) {
+        self._input = input
+        self.type = type
+        self.action = action
+        self.label = label
+        self.sizeWidth = sizeWidth
+        self.sizeHeight = sizeHeight
+    }
     
-    var body: some View {
+    public var body: some View {
         switch type {
-        case .email:
-                TextField("E-mail", text: $input)
+        case .generic:
+                TextField( label , text: $input)
                     .font(Font.custom("SF Pro", size: 15))
                     .padding(.horizontal, 20)
                     .padding(.vertical, 15)
-                    .frame(width: 343, height: 48, alignment: .leading)
+                    .frame(width: sizeWidth, height: sizeHeight, alignment: .leading)
                     .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                     .cornerRadius(10)
             
-        case .senha:
+        case .password:
                 ZStack(alignment: .trailing) {
                     Group {
                         if isSecured {
@@ -58,7 +71,7 @@ struct GenericTextField: View {
                 .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                 .cornerRadius(10)
 
-        case .arquivo:
+        case .file:
             
             VStack{
                 if fileName.isEmpty {
@@ -108,20 +121,27 @@ struct GenericTextField: View {
             .background(Color(red: 0.95, green: 0.95, blue: 0.97))
             .cornerRadius(10)
 
-        case .duvidaTalk:
-             HStack{
+        case .questionTalk:
+            HStack {
+                    
                 TextField("Escreva uma mensagem", text: $input)
+                    .frame(alignment: .leading)
                     .font(Font.custom("SF Pro", size: 15))
                 
-                Image(systemName: IosiIcon.paperplane.rawValue)
-                 
+                Button(action: {
+                   action()
+                }, label: {
+                    Image(systemName: IosiIcon.paperplane.rawValue)
+                            .foregroundColor(Color.IosiColors.iosiPrimary10)
+                            .rotationEffect(.degrees(45))
+                })
             }.padding(.horizontal, 20)
-                .padding(.vertical, 15)
-                .frame(width: 343, height: 48, alignment: .leading)
-                .background(Color(red: 0.95, green: 0.95, blue: 0.97))
-                .cornerRadius(10)
+                    .padding(.vertical, 15)
+                    .frame(width: 343, height: 48)
+                    .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+                    .cornerRadius(10)
             
-        case .codigoTalk:
+        case .passcodeTalk:
             
                 TextField("xxx-xxxx-xxx", text: $input)
                     .font(Font.custom("SF Pro", size: 15))
@@ -132,10 +152,9 @@ struct GenericTextField: View {
                     .cornerRadius(10)
                 
             
-        case .comentarioTalk:
-                Text("Comentário para o(a) professor(a)")
+        case .comentaryTalk:
+            TextField("Comentário para o(a) professor(a)", text: $input)
                   .font(Font.custom("SF Pro", size: 15))
-                  .multilineTextAlignment(.center)
                   .foregroundColor(Color(red: 0.56, green: 0.56, blue: 0.58))
                     .padding(.horizontal, 20)
                     .padding(.vertical, 15)
@@ -150,11 +169,9 @@ struct GenericTextField: View {
 
 struct teste: View {
     @State var inputTest: String = ""
-    @State var fileName = ""
-    @State var openFile = false
     
     var body: some View {
-        GenericTextField(input: $inputTest, fileName: $fileName, openFile: $openFile, type: .comentarioTalk)
+        GenericTextField(input: $inputTest, type: .generic, label: "Label", sizeWidth: 300, sizeHeight: 56)
     }
 }
 
