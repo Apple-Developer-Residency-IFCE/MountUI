@@ -8,7 +8,7 @@
 import SwiftUI
 
 public enum TypeTextField {
-    case email
+    case generic
     case password
     case file
     case questionTalk
@@ -25,21 +25,26 @@ public struct GenericTextField: View {
     
     var type: TypeTextField
     var action: () -> Void
-    
-    public init(input: Binding<String>, type: TypeTextField, action:@escaping () -> Void = {}) {
+    var label: String
+    var sizeWidth: CGFloat
+    var sizeHeight: CGFloat
+    public init(input: Binding<String>, type: TypeTextField, action:@escaping () -> Void = {}, label: String = " ", sizeWidth: CGFloat = 343, sizeHeight: CGFloat = 48) {
         self._input = input
         self.type = type
         self.action = action
+        self.label = label
+        self.sizeWidth = sizeWidth
+        self.sizeHeight = sizeHeight
     }
     
     public var body: some View {
         switch type {
-        case .email:
-                TextField("E-mail", text: $input)
+        case .generic:
+                TextField( label , text: $input)
                     .font(Font.custom("SF Pro", size: 15))
                     .padding(.horizontal, 20)
                     .padding(.vertical, 15)
-                    .frame(width: 343, height: 48, alignment: .leading)
+                    .frame(width: sizeWidth, height: sizeHeight, alignment: .leading)
                     .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                     .cornerRadius(10)
             
@@ -166,7 +171,7 @@ struct teste: View {
     @State var inputTest: String = ""
     
     var body: some View {
-        GenericTextField(input: $inputTest, type: .questionTalk)
+        GenericTextField(input: $inputTest, type: .generic, label: "Email", sizeWidth: 300, sizeHeight: 56)
     }
 }
 
