@@ -17,7 +17,6 @@ public enum TypeTextField {
 }
 public struct GenericTextField: View {
     @Environment(\.colorScheme) var colorScheme
-    
     @State private var isSecured: Bool = true
     @State var fileName: String = ""
     @State var openFile: Bool = false
