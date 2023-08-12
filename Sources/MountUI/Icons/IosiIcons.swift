@@ -1,5 +1,5 @@
 //
-//  SystemIcons.swift
+//  IosiIcons.swift
 //  MountUI
 //
 //  Created by Yohanne Moreira on 0/08/3.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IosiIcon: String {
+public enum IosiIcon: String {
     case desktopComputer = "play.desktopcomputer"
     case iphoneGen = "iphone.gen2.badge.play"
     case wifi = "wifi"

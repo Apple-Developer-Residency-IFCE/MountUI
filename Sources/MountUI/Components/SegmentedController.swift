@@ -56,14 +56,14 @@ struct Segment: View {
     }
 }
 
-struct SegmentedControllerPOC: View {
+public struct SegmentedController: View {
     
     var titles: [String]
     var segmentSize: CGFloat
     
     @Binding var selectedScreen: Int
     
-    init(titles: [String], selectedScreen: Binding<Int>) {
+    public init(titles: [String], selectedScreen: Binding<Int>) {
         self.titles = titles
         self._selectedScreen = selectedScreen
         
@@ -74,7 +74,7 @@ struct SegmentedControllerPOC: View {
         }
     }
     
-    var body: some View {
+    public var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 0) {
@@ -92,7 +92,7 @@ struct content3: View {
     @State var screen: Int = 0
     
     var body: some View {
-        SegmentedControllerPOC(titles: ["First", "Second", "Third", "Forth"], selectedScreen: $screen)
+        SegmentedController(titles: ["First", "Second", "Third", "Forth"], selectedScreen: $screen)
     }
 }
 
