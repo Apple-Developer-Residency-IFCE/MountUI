@@ -62,7 +62,7 @@ public struct GenericTextField: View {
                         isSecured.toggle()
                     }) {
                         Image(systemName: self.isSecured ? "eye.slash" : "eye")
-                            .accentColor(.gray)
+                           .foregroundColor(Color.IosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under)) 
                     }
                 }
                 .padding(.horizontal, 20)
