@@ -15,40 +15,31 @@ public enum SizeFilterButton: CGFloat {
     case small = 109
 }
 
- public struct FilterButton: View {
+public struct FilterButton: View {
+    @State var isActive: Bool = false
     
-    let buttonType: ButtonType
     let action: () -> Void
-     let size: SizeFilterButton
+    let size: SizeFilterButton
     let labelText: String
     
-    let textColor: Color
-    let buttonColor: Color
+    var colorScheme: ColorScheme
+    var colors = Color.IosiColors.self
     
-     public init(buttonType: ButtonType, colorScheme: ColorScheme, text: String ,action: @escaping () -> Void) {
-        self.buttonType = buttonType
+    public init(colorScheme: ColorScheme, text: String ,action: @escaping () -> Void) {
+        self.colorScheme = colorScheme
         self.action = action
         self.labelText = text
         
         self.size = FilterButton.getAutoSize(text: text)
-         
-        if buttonType == .primary {
-            let colors = FilterButton.getPrimaryColors(colorScheme: colorScheme)
-            textColor = colors[0]
-            buttonColor = colors[1]
-        } else {
-            let colors = FilterButton.getSecundaryColors(colorScheme: colorScheme)
-            textColor = colors[0]
-            buttonColor = colors[1]
-        }
     }
     
-     public var body: some View {
+    public var body: some View {
         Button {
+            self.isActive.toggle()
             action()
         } label: {
             ZStack {
-                if buttonType == .primary {
+                if isActive {
                     RoundedRectangle(cornerRadius: 16)
                         .frame(width: size.rawValue, height: 34)
                 } else {
@@ -61,34 +52,16 @@ public enum SizeFilterButton: CGFloat {
                     .iosiFont(size: .footnote, weight: .regular)
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
-                    .foregroundColor(textColor)
+                    .foregroundColor(colors.getFilterButtonTextColor(colorScheme: colorScheme, isActive: isActive))
                     .frame(width: size.rawValue, height: 34)
             }
-                .foregroundColor(buttonColor)
+            .foregroundColor(colors.getPrimaryColors(colorScheme: colorScheme, for: .under))
         }
         
     }
 }
 
 public extension FilterButton {
-    
-    static func getPrimaryColors(colorScheme: ColorScheme) -> [Color] {
-        
-        if colorScheme == .light {
-            return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiPrimary10]
-        } else {
-            return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiPrimary70]
-        }
-    }
-    
-    static func getSecundaryColors(colorScheme: ColorScheme) -> [Color] {
-        if colorScheme == .light {
-            return [Color.IosiColors.iosiPrimary10, Color.IosiColors.iosiPrimary10]
-        } else {
-            return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiNeutral100]
-        }
-    }
-    
     static func getAutoSize(text: String) -> SizeFilterButton {
         return text.count < 11 ? .small : .big
     }
@@ -98,7 +71,7 @@ struct content1: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        FilterButton(buttonType: .primary, colorScheme: colorScheme, text: "Course Nam", action: {print("a")})
+        FilterButton(colorScheme: colorScheme, text: "Course Name", action: {print("a")})
     }
 }
 
