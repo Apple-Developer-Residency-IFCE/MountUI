@@ -131,6 +131,40 @@ public extension Color {
                 return Color.IosiColors.iosiNeutralZero
             }
         }
+        
+        static func getFilterButtonPrimaryColors(colorScheme: ColorScheme) -> [Color] {
+            
+            if colorScheme == .light {
+                return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiPrimary10]
+            } else {
+                return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiPrimary70]
+            }
+        }
+        
+        static func getSecundaryColors(colorScheme: ColorScheme) -> [Color] {
+            if colorScheme == .light {
+                return [Color.IosiColors.iosiPrimary10, Color.IosiColors.iosiPrimary10]
+            } else {
+                return [Color.IosiColors.iosiNeutral100, Color.IosiColors.iosiNeutral100]
+            }
+        }
+        
+        static func getFilterButtonTextColor(colorScheme: ColorScheme, isActive: Bool) -> Color {
+            switch colorScheme {
+            case .light:
+                if isActive {
+                    return Color.IosiColors.iosiNeutral100
+                }
+                return Color.IosiColors.iosiPrimary10
+            case .dark:
+                if isActive {
+                    return Color.IosiColors.iosiNeutral100
+                }
+                return Color.IosiColors.iosiPrimary70
+            @unknown default:
+                return Color.IosiColors.iosiNeutral50
+            }
+        }
     }
 }
 
