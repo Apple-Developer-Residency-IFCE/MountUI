@@ -162,6 +162,8 @@ public enum IosiIcon: String {
     case chartBarFill = "chart.bar.fill"
     case circleDashed = "circle.dashed"
     case docPlaintFill = "doc.plaintext.fill"
+    case clockCheckmark = "clock.badge.checkmark"
+    case clockCheckmarkFill = "clock.badge.checkmark.fill"
 }
 
 
