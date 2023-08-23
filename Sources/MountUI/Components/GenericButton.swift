@@ -65,10 +65,11 @@ public struct GenericButton: View {
                             Text(label)
                                 .iosiFont(size: .body, weight: .bold)
                                 .foregroundColor(iosiColors.iosiNeutral100)
-                            
-                            Image(systemName: icon)
-                                .foregroundColor(iosiColors.iosiNeutral100)
-                                .padding(.horizontal, 8)
+                            if !icon.isEmpty {
+                                Image(systemName: icon)
+                                    .foregroundColor(iosiColors.iosiNeutral100)
+                                    .padding(.horizontal, 8)
+                            }
                         }
                     }
                 case .secundary:
@@ -83,10 +84,11 @@ public struct GenericButton: View {
                             Text(label)
                                 .iosiFont(size: .body, weight: .bold)
                                 .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
-                            
-                            Image(systemName: icon)
-                                .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
-                                .padding(.horizontal, 8)
+                            if !icon.isEmpty {
+                                Image(systemName: icon)
+                                    .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                                    .padding(.horizontal, 8)
+                            }
                         }
                     }
                 }
@@ -104,10 +106,11 @@ public struct GenericButton: View {
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
                             .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
-                        
-                        Image(systemName: icon)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
-                            .padding(.horizontal, 8)
+                        if !icon.isEmpty {
+                            Image(systemName: icon)
+                                .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
+                                .padding(.horizontal, 8)
+                        }
                     }
                 }
             case .secundary:
@@ -122,10 +125,11 @@ public struct GenericButton: View {
                         Text(label)
                             .iosiFont(size: .body, weight: .bold)
                             .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral90 : Color.IosiColors.iosiNeutral40)
-                        
-                        Image(systemName: icon)
-                            .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral90 : Color.IosiColors.iosiNeutral40)
-                            .padding(.horizontal, 8)
+                        if !icon.isEmpty {
+                            Image(systemName: icon)
+                                .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral90 : Color.IosiColors.iosiNeutral40)
+                                .padding(.horizontal, 8)
+                        }
                     }
                 }
             }
