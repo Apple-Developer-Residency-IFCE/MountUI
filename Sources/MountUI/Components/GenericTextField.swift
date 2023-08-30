@@ -15,6 +15,8 @@ public enum TypeTextField {
     case passcodeTalk
     case comentaryTalk
 }
+
+@available(*, deprecated , message: "Essa struct foi deprecada! Por favor mude-a para: <StructNameHere>")
 public struct GenericTextField: View {
     @Environment(\.colorScheme) var colorScheme
     
