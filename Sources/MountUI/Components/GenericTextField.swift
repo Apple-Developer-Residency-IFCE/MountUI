@@ -16,7 +16,6 @@ public enum TypeTextField {
     case comentaryTalk
 }
 
-@available(*, deprecated , message: "Essa struct foi deprecada! Por favor mude-a para: <StructNameHere>")
 public struct GenericTextField: View {
     @Environment(\.colorScheme) var colorScheme
     
@@ -28,14 +27,24 @@ public struct GenericTextField: View {
     var type: TypeTextField
     var action: () -> Void
     var label: String
-    var sizeWidth: CGFloat
+    var sizeWidth: CGFloat = 10
     var sizeHeight: CGFloat
+    
+    @available(*, deprecated , message: "Esse Init foi deprecada!")
     public init(input: Binding<String>, type: TypeTextField, action:@escaping () -> Void = {}, label: String = " ", sizeWidth: CGFloat = 343, sizeHeight: CGFloat = 48) {
         self._input = input
         self.type = type
         self.action = action
         self.label = label
         self.sizeWidth = sizeWidth
+        self.sizeHeight = sizeHeight
+    }
+    
+    public init(input: Binding<String>, type: TypeTextField, action:@escaping () -> Void = {}, label: String = " ", sizeHeight: CGFloat = 48) {
+        self._input = input
+        self.type = type
+        self.action = action
+        self.label = label
         self.sizeHeight = sizeHeight
     }
     
@@ -167,7 +176,6 @@ public struct GenericTextField: View {
         
     }
 }
-
 
 struct teste: View {
     @State var inputTest: String = ""
