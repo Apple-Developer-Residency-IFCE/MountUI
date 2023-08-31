@@ -152,7 +152,7 @@ public enum IosiIcon: String {
     case arrowDownRigthAndArrowDownRigth="arrow.down.rigth.and.arrrow.down.rigth"
     case infoCircle = "info.circle"
     case infoCircleFill = "info.circle.fill"
-    case photo = "photo 1"
+    case photo = "photo"
     case speakerWave1 = "speaker.wave.1"
     case speakerWave2 = "speaker.wave.2"
     case speakerWave1Fill = "speaker.wave.1.fill"
