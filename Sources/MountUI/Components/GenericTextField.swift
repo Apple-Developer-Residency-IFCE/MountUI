@@ -118,7 +118,7 @@ public struct GenericTextField: View {
                 do{
                     let fileURL = try Result.get()
                     print(fileURL)
-                    self.fileName = fileURL.first?.lastPathComponent ?? "file not available"
+                    self.input = fileURL.first?.lastPathComponent ?? "file not available"
                     
                 }
                 catch{
@@ -173,7 +173,7 @@ public struct GenericTextField: View {
                     .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                     .cornerRadius(10)
         }
-        
+        //
     }
 }
 
