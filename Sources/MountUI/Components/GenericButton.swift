@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-public enum Size: CGFloat {
-    case large = 343
-    case small = 158
-    case minimal = 48
-}
-
 public enum ButtonType {
     case primary
     case secundary
@@ -33,7 +27,6 @@ public struct GenericButton: View {
     
     let iosiColors = Color.IosiColors.self
     
-    let buttonSize: Size
     let buttonType: ButtonType
     var buttonState: ButtonState
     
@@ -43,8 +36,7 @@ public struct GenericButton: View {
     var iconAlignment: IconAlignment
     let action: () -> Void
     
-    public init(buttonSize: Size, buttonType: ButtonType, buttonState: ButtonState, label: String, icon: String,iconAlignment: IconAlignment = .trailing, action: @escaping () -> Void) {
-        self.buttonSize = buttonSize
+    public init(buttonType: ButtonType, buttonState: ButtonState, label: String, icon: String,iconAlignment: IconAlignment = .trailing, action: @escaping () -> Void) {
         self.buttonType = buttonType
         self.buttonState = buttonState
         self.label = label
@@ -63,7 +55,7 @@ public struct GenericButton: View {
                 case .primary:
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
-                            .frame(width: buttonSize.rawValue, height: 48)
+                            .frame(width: .infinity, height: 48)
                             .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
                         
                         HStack(spacing: 0) {
@@ -87,7 +79,7 @@ public struct GenericButton: View {
                         
                         RoundedRectangle(cornerRadius: 10)
                             .stroke()
-                            .frame(width: buttonSize.rawValue, height: 48)
+                            .frame(width: .infinity, height: 48)
                             .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
                         
                         HStack(spacing: 0) {
@@ -114,7 +106,7 @@ public struct GenericButton: View {
                 ZStack{
                     
                     RoundedRectangle(cornerRadius: 10)
-                        .frame(width: buttonSize.rawValue, height: 48)
+                        .frame(width: .infinity, height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral93 : Color.IosiColors.iosiNeutral10)
                     
                     HStack(spacing: 0) {
@@ -138,7 +130,7 @@ public struct GenericButton: View {
                     
                     RoundedRectangle(cornerRadius: 10)
                         .stroke()
-                        .frame(width: buttonSize.rawValue, height: 48)
+                        .frame(width: .infinity, height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
                     
                     HStack(spacing: 0) {
@@ -165,6 +157,7 @@ public struct GenericButton: View {
 
 struct ButtonGeneric_Previews: PreviewProvider {
     static var previews: some View {
-        GenericButton(buttonSize: .small, buttonType: .secundary, buttonState: .active, label: "Label", icon: "heart", iconAlignment: .trailing, action: {print("a")})
+        GenericButton(buttonType: .secundary, buttonState: .active, label: "Label", icon: "heart", iconAlignment: .trailing, action: {print("a")})
+            .padding(20)
     }
 }

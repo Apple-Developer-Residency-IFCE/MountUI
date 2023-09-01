@@ -16,11 +16,15 @@ public extension Color {
     
     struct IosiColors {
         
-        public enum useOfColor {
-        case under, onTop
+        public enum UseOfColor {
+            case under, onTop
         }
         
-        public enum surfaceCountainerHeight {
+        public enum TextFieldUseOfColor {
+            case under, onTop, label
+        }
+        
+        public enum SurfaceCountainerHeight {
             case lowest, low, regular, high, highest
         }
         
@@ -77,7 +81,7 @@ public extension Color {
             return colorScheme == .light ? true : false
         }
         
-        public static func getPrimaryColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+        public static func getPrimaryColors(colorScheme: ColorScheme, for useOfColor: UseOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
                 return useOfColor == .under ? Color.IosiColors.iosiPrimary10 : Color.IosiColors.iosiNeutral100
             } else {
@@ -85,7 +89,7 @@ public extension Color {
             }
         }
         
-        public static func getSuccesColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+        public static func getSuccesColors(colorScheme: ColorScheme, for useOfColor: UseOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
                 return useOfColor == .under ? Color.IosiColors.iosiSuccess30 : Color.IosiColors.iosiNeutral100
             } else {
@@ -93,7 +97,7 @@ public extension Color {
             }
         }
         
-        public static func getProgressColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+        public static func getProgressColors(colorScheme: ColorScheme, for useOfColor: UseOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
                 return useOfColor == .under ? Color.IosiColors.iosiNeutral50 : Color.IosiColors.iosiNeutral50
             } else {
@@ -101,7 +105,7 @@ public extension Color {
             }
         }
         
-        public static func getErrorColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+        public static func getErrorColors(colorScheme: ColorScheme, for useOfColor: UseOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
                 return useOfColor == .under ? Color.IosiColors.iosiError50 : Color.IosiColors.iosiNeutral100
             } else {
@@ -109,7 +113,7 @@ public extension Color {
             }
         }
         
-        public static func getInfoColors(colorScheme: ColorScheme, for useOfColor: useOfColor) -> Color {
+        public static func getInfoColors(colorScheme: ColorScheme, for useOfColor: UseOfColor) -> Color {
             if Color.IosiColors().isLightMode(colorScheme) {
                 return useOfColor == .under ? Color.IosiColors.iosiInfo50 : Color.IosiColors.iosiNeutral100
             } else {
@@ -117,7 +121,7 @@ public extension Color {
             }
         }
         
-        public static func getSurfaceContainerColor(colorScheme: ColorScheme, height: surfaceCountainerHeight) -> Color {
+        public static func getSurfaceContainerColor(colorScheme: ColorScheme, height: SurfaceCountainerHeight) -> Color {
             switch height {
             case .lowest:
                 return Color.IosiColors.iosiNeutral100
@@ -163,6 +167,26 @@ public extension Color {
                 return Color.IosiColors.iosiPrimary70
             @unknown default:
                 return Color.IosiColors.iosiNeutral50
+            }
+        }
+        
+        static func getTextFieldColors(colorScheme: ColorScheme, for useOfColor: TextFieldUseOfColor) -> Color {
+            switch useOfColor {
+            case .under:
+                if colorScheme == .light {
+                    return Color.IosiColors.iosiNeutral95
+                }
+                return Color.IosiColors.iosiNeutral10
+            case .onTop:
+                if colorScheme == .light {
+                    return Color.IosiColors.iosiNeutral50
+                }
+                return Color.IosiColors.iosiNeutral100
+            case .label:
+                if colorScheme == .light {
+                    return Color.IosiColors.iosiPrimary30
+                }
+                return Color.IosiColors.iosiPrimary70
             }
         }
     }
