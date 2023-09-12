@@ -15,9 +15,9 @@ enum FileType {
 struct FileField: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @State var fileName = ""
     @State var openFile = false
-    @State var pdfData: Data?
+    @Binding var fileName: [String]
+    @Binding var fileData: [Data?]
     
     let fileType: FileType
     
@@ -72,7 +72,7 @@ struct FileField: View {
                             VStack(spacing: 0) {
                                 Text("Selecione um arquivo")
                                     .iosiFont(size: .subheadline, weight: .regular)
-                                Text("Tamano máximo permitido de 10mb")
+                                Text("Tamano máximo permitido de 10MB")
                                     .iosiFont(size: .footnote, weight: .bold)
                                     .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral50 : Color.IosiColors.iosiNeutral80)
                             }
@@ -85,8 +85,8 @@ struct FileField: View {
                             Text("Arquivo selecionado:")
                                 .iosiFont(size: .subheadline, weight: .regular)
                             HStack(alignment: .center) {
-                                Image(IosiIcon.docTextFill.rawValue)
-                                Text(fileName)
+                                Image(systemName: IosiIcon.docTextFill.rawValue)
+                                Text(fileName.count == 1 ? fileName.first! : "\(fileName.count) arquivos selecionados.")
                                     .iosiFont(size: .body, weight: .bold)
                             }
                             .padding(.vertical, 16)
@@ -101,12 +101,13 @@ struct FileField: View {
                 
                 do{
                     let fileURL = try result.get()
-                    self.fileName = fileURL.first?.lastPathComponent ?? "file not available"
-                    self.pdfData = try Data(contentsOf: fileURL[0])
-                    print(fileURL)
-                    print(fileName)
-                    print(pdfData)
-                    
+                    for url in fileURL {
+                        self.fileName.append(url.lastPathComponent)
+                    }
+                    for file in fileURL {
+                        self.fileData.append( try Data(contentsOf: file) )
+                        
+                    }
                 }
                 catch{
                     print("error reading file (error.localizedDescription)")
@@ -117,9 +118,27 @@ struct FileField: View {
     }
 }
 
+struct CallToFileField: View {
+    @State var fileName: [String] = []
+    @State var fileData: [Data?] = []
+    var body: some View {
+        VStack {
+            FileField(fileName: $fileName, fileData: $fileData, fileType: .pdf)
+                .frame(width: 344, height: 170)
+            
+            Button {
+                print(fileName)
+                print(fileData)
+            } label: {
+                Text("test name")
+            }
+
+        }
+    }
+}
+
 struct FileField_Previews: PreviewProvider {
     static var previews: some View {
-        FileField(fileType: .pdf)
-            .frame(width: 344, height: 170)
+        CallToFileField()
     }
 }
