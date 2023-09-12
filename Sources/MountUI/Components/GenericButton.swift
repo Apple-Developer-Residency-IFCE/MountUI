@@ -55,7 +55,7 @@ public struct GenericButton: View {
                 case .primary:
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
-                            .frame(width: .infinity, height: 48)
+                            .frame(height: 48)
                             .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
                         
                         HStack(spacing: 0) {
