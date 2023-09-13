@@ -12,7 +12,7 @@ enum FileType {
     case pdf
 }
 
-struct FileField: View {
+public struct FileField: View {
     @Environment(\.colorScheme) var colorScheme
     
     @State var openFile = false
@@ -21,7 +21,7 @@ struct FileField: View {
     
     let fileType: FileType
     
-    var body: some View {
+    public var body: some View {
         switch fileType {
             //        case .image:
             //            ZStack(alignment: .center) {
