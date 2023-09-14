@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum FileType {
+public enum FileType {
     //    case image
     case pdf
 }
@@ -17,9 +17,15 @@ public struct FileField: View {
     
     @State var openFile = false
     @Binding var fileName: [String]
-    @Binding var fileData: [Data?]
+    @Binding var fileData: [Data]
     
     let fileType: FileType
+    
+    public init(fileName: Binding<[String]>, fileData: Binding<[Data]>, fileType: FileType) {
+        self._fileName = fileName
+        self._fileData = fileData
+        self.fileType = fileType
+    }
     
     public var body: some View {
         switch fileType {
@@ -120,7 +126,7 @@ public struct FileField: View {
 
 struct CallToFileField: View {
     @State var fileName: [String] = []
-    @State var fileData: [Data?] = []
+    @State var fileData: [Data] = []
     var body: some View {
         VStack {
             FileField(fileName: $fileName, fileData: $fileData, fileType: .pdf)
