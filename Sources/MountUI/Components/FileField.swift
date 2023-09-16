@@ -70,7 +70,7 @@ public struct FileField: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .under))
-                    if fileName.isEmpty {
+                    if !fileName.isEmpty {
                         VStack(spacing: 10) {
                             Image(systemName: IosiIcon.arrowUpDoc.rawValue)
                                 .resizable()
@@ -94,9 +94,25 @@ public struct FileField: View {
                                 Image(systemName: IosiIcon.docTextFill.rawValue)
                                 Text(fileName.count == 1 ? fileName.first! : "\(fileName.count) arquivos selecionados.")
                                     .iosiFont(size: .body, weight: .bold)
+                                Spacer()
+                                Button {
+                                    fileName = []
+                                    fileData = []
+                                } label: {
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(Color.IosiColors.iosiNeutral90)
+                                            .frame(width: 24, height: 24)
+                                        Image(systemName: "xmark")
+                                            .resizable()
+                                            .foregroundColor(Color.IosiColors.iosiNeutral50)
+                                            .frame(width: 8, height: 8)
+                                            .fontWeight(.bold)
+                                    }
+                                }
                             }
                             .padding(.vertical, 16)
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 16)
                         }
                     }
                 }
