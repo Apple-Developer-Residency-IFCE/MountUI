@@ -70,7 +70,7 @@ public struct FileField: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .under))
-                    if !fileName.isEmpty {
+                    if fileName.isEmpty {
                         VStack(spacing: 10) {
                             Image(systemName: IosiIcon.arrowUpDoc.rawValue)
                                 .resizable()
