@@ -52,9 +52,9 @@ public struct GenericTextField: View {
             ZStack(alignment: .trailing) {
                 Group {
                     if isSecured {
-                        SecureField(label, text: $input) //securefield
+                        SecureField("Senha", text: $input) //securefield
                     } else {
-                        TextField(label, text: $input) //textfield
+                        TextField("Senha", text: $input) //textfield
                     }
                 }
                 
@@ -150,7 +150,7 @@ struct teste: View {
     @State var inputTest: String = ""
     
     var body: some View {
-        GenericTextField(input: $inputTest, type: .generic, label: "Label", sizeWidth: 300, sizeHeight: 56)
+        GenericTextField(input: $inputTest, type: .password, label: "Label", sizeWidth: 300, sizeHeight: 56)
     }
 }
 
