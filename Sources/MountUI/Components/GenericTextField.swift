@@ -26,7 +26,7 @@ public struct GenericTextField: View {
     var sizeWidth: CGFloat?
     var sizeHeight: CGFloat?
 
-    public init(input: Binding<String>, type: TypeTextField, label: String = " ", sizeWidth: CGFloat = nil, sizeHeight: CGFloat? = 10, action: @escaping () -> Void = {}) {
+    public init(input: Binding<String>, type: TypeTextField, label: String = " ", sizeWidth: CGFloat? = nil, sizeHeight: CGFloat? = 10, action: @escaping () -> Void = {}) {
         self._input = input
         self.type = type
         self.action = action
