@@ -88,7 +88,7 @@ public struct SegmentedController: View {
     }
 }
 
-struct content3: View {
+private struct content3: View {
     @State var screen: Int = 0
     
     var body: some View {

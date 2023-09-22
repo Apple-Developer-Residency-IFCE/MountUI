@@ -67,7 +67,7 @@ public extension FilterButton {
     }
 }
 
-struct content1: View {
+private struct content1: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {

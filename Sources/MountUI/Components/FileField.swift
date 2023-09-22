@@ -140,7 +140,7 @@ public struct FileField: View {
     }
 }
 
-struct CallToFileField: View {
+private struct CallToFileField: View {
     @State var fileName: [String] = []
     @State var fileData: [Data] = []
     var body: some View {

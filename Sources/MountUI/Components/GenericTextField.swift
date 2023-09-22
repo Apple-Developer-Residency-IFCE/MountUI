@@ -146,7 +146,7 @@ public struct GenericTextField: View {
     }
 }
 
-struct teste: View {
+private struct teste: View {
     @State var inputTest: String = ""
     
     var body: some View {
