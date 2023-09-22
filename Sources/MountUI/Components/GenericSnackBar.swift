@@ -45,7 +45,7 @@ public struct GenericSnackbar: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .frame(width: 360, height: .infinity)
+        .frame(width: 360)
         .background(){
             RoundedRectangle(cornerRadius: 8)
                 .foregroundColor(color == .green ? iosiColor.getSuccesColors(colorScheme: colorScheme, for: .under) : iosiColor.getErrorColors(colorScheme: colorScheme, for: .under))
@@ -53,11 +53,21 @@ public struct GenericSnackbar: View {
     }
 }
 
-struct content: View {
+private struct content: View {
     @State var isShowing = true
     
     var body: some View {
-        GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .green)
+        VStack {
+            if isShowing {
+                GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .green)
+            } else {
+                Button {
+                    isShowing.toggle()
+                } label: {
+                    Text("Teste")
+                }
+            }
+        }
     }
 }
 

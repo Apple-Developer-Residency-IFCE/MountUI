@@ -135,7 +135,7 @@ private struct Triangle: Shape {
     
 }
 
-struct content2: View {
+private struct content2: View {
     @Environment(\.colorScheme) var colorScheme
     
     @State var isShowing = true
