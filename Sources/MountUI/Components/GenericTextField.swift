@@ -23,10 +23,10 @@ public struct GenericTextField: View {
     var type: TypeTextField
     var action: () -> Void
     var label: String
-    var sizeWidth: CGFloat = 10
-    var sizeHeight: CGFloat
+    var sizeWidth: CGFloat?
+    var sizeHeight: CGFloat?
 
-    public init(input: Binding<String>, type: TypeTextField, label: String = " ", sizeWidth: CGFloat = .infinity, sizeHeight: CGFloat = .infinity, action: @escaping () -> Void = {}) {
+    public init(input: Binding<String>, type: TypeTextField, label: String = " ", sizeWidth: CGFloat = 10, sizeHeight: CGFloat? = nil, action: @escaping () -> Void = {}) {
         self._input = input
         self.type = type
         self.action = action
