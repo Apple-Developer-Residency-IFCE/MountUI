@@ -37,7 +37,7 @@ public struct GenericSnackbar: View {
             Spacer(minLength: 24)
             
             Button {
-                isShowing = false
+                isShowing.toggle()
             } label: {
                 Image(systemName: "xmark")
                     .foregroundColor(Color.IosiColors.iosiNeutral100)
