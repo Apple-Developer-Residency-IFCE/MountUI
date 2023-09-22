@@ -79,7 +79,7 @@ public struct GenericButton: View {
                         
                         RoundedRectangle(cornerRadius: 10)
                             .stroke()
-                            .frame(width: .infinity, height: 48)
+                            .frame(height: 48)
                             .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
                         
                         HStack(spacing: 0) {
@@ -106,7 +106,7 @@ public struct GenericButton: View {
                 ZStack{
                     
                     RoundedRectangle(cornerRadius: 10)
-                        .frame(width: .infinity, height: 48)
+                        .frame(height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral93 : Color.IosiColors.iosiNeutral10)
                     
                     HStack(spacing: 0) {
@@ -130,7 +130,7 @@ public struct GenericButton: View {
                     
                     RoundedRectangle(cornerRadius: 10)
                         .stroke()
-                        .frame(width: .infinity, height: 48)
+                        .frame(height: 48)
                         .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral80 : Color.IosiColors.iosiNeutral40)
                     
                     HStack(spacing: 0) {
