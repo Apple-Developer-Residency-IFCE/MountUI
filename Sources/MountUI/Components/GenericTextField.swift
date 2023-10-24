@@ -15,8 +15,6 @@ public enum TypeTextField {
 }
 
 public struct GenericTextField: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     @State private var isSecured: Bool = true
     @Binding var input: String
     
@@ -26,35 +24,44 @@ public struct GenericTextField: View {
     var sizeWidth: CGFloat?
     var sizeHeight: CGFloat?
 
-    public init(input: Binding<String>, type: TypeTextField, label: String = " ", sizeWidth: CGFloat? = nil, sizeHeight: CGFloat? = nil, action: @escaping () -> Void = {}) {
+    let colorScheme: Color.IosiColorScheme
+
+    public init(input: Binding<String>, type: TypeTextField, label: String = " ", sizeWidth: CGFloat? = nil, sizeHeight: CGFloat? = nil, colorScheme: Color.IosiColorScheme, action: @escaping () -> Void = {}) {
         self._input = input
         self.type = type
         self.action = action
         self.label = label
         self.sizeWidth = sizeWidth
         self.sizeHeight = sizeHeight
+        self.colorScheme = colorScheme
     }
 
     public var body: some View {
         switch type {
             
         case .generic:
-            TextField( label , text: $input)
+            TextField(label,
+                      text: $input,
+                      prompt: Text(label).foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text)))
                 .font(Font.custom("SF Pro", size: 15))
                 .padding(.horizontal, 20)
                 .padding(.vertical, 15)
                 .frame(width: sizeWidth, height: sizeHeight, alignment: .leading)
-                .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .onTop))
-                .background(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .under))
+                .background(Color.IosiColors.textfieldColors(colorScheme, for: .background))
                 .cornerRadius(10)
+                .foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))
             
         case .password:
             ZStack(alignment: .trailing) {
                 Group {
                     if isSecured {
-                        SecureField("Senha", text: $input) //securefield
+                        SecureField(label,
+                                    text: $input,
+                                    prompt: Text(label).foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))) //securefield
                     } else {
-                        TextField("Senha", text: $input) //textfield
+                        TextField(label,
+                                  text: $input,
+                                  prompt: Text(label).foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))) //textfield
                     }
                 }
                 
@@ -62,69 +69,20 @@ public struct GenericTextField: View {
                     isSecured.toggle()
                 }) {
                     Image(systemName: self.isSecured ? "eye.slash" : "eye")
-                        .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .label))
+                        .foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))
                 }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 15)
             .frame(width: sizeWidth, height: sizeHeight, alignment: .leading)
-            .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .onTop))
-            .background(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .under))
+            .foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))
+            .background(Color.IosiColors.textfieldColors(colorScheme, for: .background))
             .cornerRadius(10)
-            
-            //        case .file:
-            //
-            //            VStack{
-            //                if fileName.isEmpty {
-            //                    Button {
-            //                        self.openFile.toggle()
-            //                    } label: {
-            //                        VStack{
-            //                            Image(systemName: IosiIcon.arrowUpDoc.rawValue)
-            //                                .foregroundColor(Color.IosiColors.iosiPrimary30)
-            //                                .padding(.bottom, 10)
-            //                            Text("Selecione um arquivo")
-            //                                .iosiFont(size: .subheadline, weight: .regular)
-            //                                .foregroundColor(Color.IosiColors.iosiPrimary30)
-            //                        }
-            //                    }
-            //                } else {
-            //                    VStack {
-            //                        Text("Arquivo selecionado: ")
-            //                            .foregroundColor(Color.IosiColors.iosiPrimary30)
-            //                            .padding(.bottom, 10)
-            //
-            //                        HStack {
-            //                            Image(systemName: IosiIcon.docTextFill.rawValue)
-            //                            Text(self.fileName)
-            //                                .foregroundColor(Color.IosiColors.iosiPrimary30)
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //            .fileImporter( isPresented: $openFile, allowedContentTypes: [.audio,.image,.pdf], allowsMultipleSelection: true, onCompletion: {
-            //                (Result) in
-            //
-            //                do{
-            //                    let fileURL = try Result.get()
-            //                    print(fileURL)
-            //                    self.input = fileURL.first?.lastPathComponent ?? "file not available"
-            //
-            //                }
-            //                catch{
-            //                    print("error reading file (error.localizedDescription)")
-            //                }
-            //
-            //            })
-            //            .padding(.horizontal, 20)
-            //            .padding(.vertical, 15)
-            //            .frame(width: 343, height: 169, alignment: .center)
-            //            .background(Color(red: 0.95, green: 0.95, blue: 0.97))
-            //            .cornerRadius(10)
-            
         case .questionTalk:
             HStack {
-                TextField(label, text: $input)
+                TextField(label,
+                          text: $input,
+                          prompt: Text(label).foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text)))
                     .frame(alignment: .leading)
                     .font(Font.custom("SF Pro", size: 15))
                 
@@ -132,15 +90,15 @@ public struct GenericTextField: View {
                     action()
                 }, label: {
                     Image(systemName: IosiIcon.paperplane.rawValue)
-                        .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .label))
+                        .foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))
                         .rotationEffect(.degrees(45))
                 })
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 15)
             .frame(width: sizeWidth, height: sizeHeight)
-            .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .onTop))
-            .background(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .under))
+            .foregroundColor(Color.IosiColors.textfieldColors(colorScheme, for: .text))
+            .background(Color.IosiColors.textfieldColors(colorScheme, for: .background))
             .cornerRadius(10)
         }
     }
@@ -150,7 +108,7 @@ private struct teste: View {
     @State var inputTest: String = ""
     
     var body: some View {
-        GenericTextField(input: $inputTest, type: .password, label: "Label")
+        GenericTextField(input: $inputTest, type: .questionTalk, label: "Label", colorScheme: .midTone)
     }
 }
 

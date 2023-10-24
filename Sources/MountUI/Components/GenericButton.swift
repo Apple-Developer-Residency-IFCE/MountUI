@@ -23,8 +23,6 @@ public enum IconAlignment{
 }
 
 public struct GenericButton: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     let iosiColors = Color.IosiColors.self
     
     let buttonType: ButtonType
@@ -35,14 +33,21 @@ public struct GenericButton: View {
     let activated: Bool = false
     var iconAlignment: IconAlignment
     let action: () -> Void
+
+    let colorScheme: Color.IosiColorScheme
     
-    public init(buttonType: ButtonType, buttonState: ButtonState, label: String, icon: String,iconAlignment: IconAlignment = .trailing, action: @escaping () -> Void) {
+    public init(buttonType: ButtonType, buttonState: ButtonState,
+                label: String, icon: String,iconAlignment:
+                IconAlignment = .trailing, colorScheme: Color.IosiColorScheme,
+                action: @escaping () -> Void) {
         self.buttonType = buttonType
         self.buttonState = buttonState
         self.label = label
         self.icon = icon
         self.action = action
         self.iconAlignment = iconAlignment
+
+        self.colorScheme = colorScheme
     }
     
     public var body: some View {
@@ -56,44 +61,41 @@ public struct GenericButton: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: 48)
-                            .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
-                        
+                            .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .background))
                         HStack(spacing: 0) {
                             if ((!icon.isEmpty) && (iconAlignment == .leading)){
                                 Image(systemName: icon)
-                                    .foregroundColor(iosiColors.iosiNeutral100)
+                                    .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .text))
                                     .padding(.horizontal, 8)
                             }
                             Text(label)
                                 .iosiFont(size: .body, weight: .bold)
-                                .foregroundColor(iosiColors.iosiNeutral100)
+                                .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .text))
                             if ((!icon.isEmpty) && (iconAlignment == .trailing)){
                                 Image(systemName: icon)
-                                    .foregroundColor(iosiColors.iosiNeutral100)
+                                    .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .text))
                                     .padding(.horizontal, 8)
                             }
                         }
                     }
                 case .secundary:
                     ZStack{
-                        
                         RoundedRectangle(cornerRadius: 10)
                             .stroke()
                             .frame(height: 48)
-                            .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
-                        
+                            .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .background))
                         HStack(spacing: 0) {
                             if ((!icon.isEmpty) && (iconAlignment == .leading)) {
                                 Image(systemName: icon)
-                                    .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                                    .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .subtext))
                                     .padding(.horizontal, 8)
                             }
                             Text(label)
                                 .iosiFont(size: .body, weight: .bold)
-                                .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                                .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .subtext))
                             if ((!icon.isEmpty) && (iconAlignment == .trailing)) {
                                 Image(systemName: icon)
-                                    .foregroundColor(iosiColors.getPrimaryColors(colorScheme: colorScheme, for: .under))
+                                    .foregroundColor(iosiColors.genericButtonColors(colorScheme, for: .subtext))
                                     .padding(.horizontal, 8)
                             }
                         }
@@ -157,7 +159,7 @@ public struct GenericButton: View {
 
 struct ButtonGeneric_Previews: PreviewProvider {
     static var previews: some View {
-        GenericButton(buttonType: .secundary, buttonState: .active, label: "Label", icon: "heart", iconAlignment: .trailing, action: {print("a")})
+        GenericButton(buttonType: .secundary, buttonState: .inactive, label: "Label", icon: "heart", iconAlignment: .trailing, colorScheme: .midTone, action: {print("a")})
             .padding(20)
     }
 }
