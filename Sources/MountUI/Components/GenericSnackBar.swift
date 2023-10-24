@@ -13,25 +13,25 @@ public enum SnackbarColor {
 }
 
 public struct GenericSnackbar: View {
-    
+
     @Binding var isShowing: Bool
-    
-    @Environment(\.colorScheme) var colorScheme
-    
+
     let text: String
     let color: SnackbarColor
     let iosiColor = Color.IosiColors.self
-    
-    public init(isShowing: Binding<Bool>, text: String, color: SnackbarColor) {
+    let colorScheme: Color.IosiColorScheme
+
+    public init(isShowing: Binding<Bool>, text: String, color: SnackbarColor, colorScheme: Color.IosiColorScheme) {
         self._isShowing = isShowing
         self.text = text
         self.color = color
+        self.colorScheme = colorScheme
     }
-    
+
     public var body: some View {
         HStack{
             Text(text)
-                .foregroundColor(Color.IosiColors.iosiNeutral100)
+                .foregroundColor(color == .green ? iosiColor.greenSnackBarColors(colorScheme, for: .text) : iosiColor.redSnackBarColors(colorScheme, for: .text))
                 .iosiFont(size: .subheadline, weight: .regular)
             
             Spacer(minLength: 24)
@@ -40,7 +40,7 @@ public struct GenericSnackbar: View {
                 isShowing.toggle()
             } label: {
                 Image(systemName: "xmark")
-                    .foregroundColor(Color.IosiColors.iosiNeutral100)
+                    .foregroundColor(color == .green ? iosiColor.greenSnackBarColors(colorScheme, for: .text) : iosiColor.redSnackBarColors(colorScheme, for: .text))
             }
         }
         .padding(.horizontal, 16)
@@ -48,7 +48,7 @@ public struct GenericSnackbar: View {
         .frame(width: 360)
         .background(){
             RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(color == .green ? iosiColor.getSuccesColors(colorScheme: colorScheme, for: .under) : iosiColor.getErrorColors(colorScheme: colorScheme, for: .under))
+                .foregroundColor(color == .green ? iosiColor.greenSnackBarColors(colorScheme, for: .background) : iosiColor.redSnackBarColors(colorScheme, for: .background))
         }
     }
 }
@@ -59,7 +59,7 @@ private struct content: View {
     var body: some View {
         VStack {
             if isShowing {
-                GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .green)
+                GenericSnackbar(isShowing: $isShowing, text: "Teste", color: .red, colorScheme: .dark)
             } else {
                 Button {
                     isShowing.toggle()

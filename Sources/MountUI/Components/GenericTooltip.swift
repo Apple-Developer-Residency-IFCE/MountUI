@@ -22,8 +22,6 @@ public enum TooltipHeight: CGFloat {
 }
 
 public struct GenericTooltip: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     @Binding var isShowing: Bool
     
     let iosiColor = Color.IosiColors.self
@@ -37,8 +35,10 @@ public struct GenericTooltip: View {
     let rectangleHeight: CGFloat
     
     let hasTitle: Bool
+
+    let colorScheme: Color.IosiColorScheme
     
-    public init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String) {
+    public init(isShowing: Binding<Bool>, trianglePlacement: Placement, insideText: String, titleText: String, colorScheme: Color.IosiColorScheme) {
         self._isShowing = isShowing
         self.trianglePlacement = trianglePlacement
         self.insideText = insideText
@@ -49,7 +49,9 @@ public struct GenericTooltip: View {
             self.rectangleWidth = TooltipWidth.small.rawValue
             self.rectangleHeight = TooltipHeight.little.rawValue
             self.hasTitle = false
-                
+
+            self.colorScheme = colorScheme
+
             return
         }
         
@@ -57,6 +59,8 @@ public struct GenericTooltip: View {
         self.rectangleWidth = TooltipWidth.big.rawValue
         self.rectangleHeight = TooltipHeight.tall.rawValue
         self.hasTitle = true
+
+        self.colorScheme = colorScheme
     }
     
     public var body: some View {
@@ -67,13 +71,13 @@ public struct GenericTooltip: View {
             Triangle()
                 .frame(width: 26, height: 18)
                 .padding(trianglePlacement == .left ? .trailing : .leading, 229)
-                .foregroundColor(iosiColor.getInfoColors(colorScheme: colorScheme, for: .under))
+                .foregroundColor(iosiColor.tooltipColors(colorScheme, for: .background))
             
             
             
             ZStack(alignment: .leading){
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(iosiColor.getInfoColors(colorScheme: colorScheme, for: .under))
+                    .foregroundColor(iosiColor.tooltipColors(colorScheme, for: .background))
                 
                 HStack{
                     if hasTitle {
@@ -103,7 +107,7 @@ public struct GenericTooltip: View {
                     Spacer()
                     
                     Button {
-                        isShowing = false
+                        isShowing.toggle()
                     } label: {
                         Image(systemName: IosiIcon.xmark.rawValue)
                             .foregroundColor(Color.IosiColors.iosiNeutral100)
@@ -141,7 +145,18 @@ private struct content2: View {
     @State var isShowing = true
     
     var body: some View {
-        GenericTooltip(isShowing: $isShowing, trianglePlacement: .left, insideText: "Tap the heart to add this session to your Favorites for easier access.", titleText: "Add to favourites")
+        VStack {
+            if isShowing {
+                GenericTooltip(isShowing: $isShowing, trianglePlacement: .left, insideText: "Tap the heart to add this session to your Favorites for easier access.", titleText: "Add to favourites", colorScheme: .dark)
+            } else {
+                Button {
+                    isShowing.toggle()
+                } label: {
+                    Text("test")
+                        .foregroundStyle(.red)
+                }
+            }
+        }
     }
 }
 

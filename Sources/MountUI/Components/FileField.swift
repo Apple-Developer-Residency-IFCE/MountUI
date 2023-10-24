@@ -13,18 +13,19 @@ public enum FileType {
 }
 
 public struct FileField: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     @State var openFile = false
     @Binding var fileName: [String]
     @Binding var fileData: [Data]
     
     let fileType: FileType
+    let colorScheme: Color.IosiColorScheme
     
-    public init(fileName: Binding<[String]>, fileData: Binding<[Data]>, fileType: FileType) {
+    public init(fileName: Binding<[String]>, fileData: Binding<[Data]>, fileType: FileType, colorScheme: Color.IosiColorScheme) {
         self._fileName = fileName
         self._fileData = fileData
         self.fileType = fileType
+
+        self.colorScheme = colorScheme
     }
     
     public var body: some View {
@@ -69,7 +70,7 @@ public struct FileField: View {
             Group {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .under))
+                        .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .background))
                     if fileName.isEmpty {
                         VStack(spacing: 10) {
                             Image(systemName: IosiIcon.arrowUpDoc.rawValue)
@@ -80,18 +81,21 @@ public struct FileField: View {
                                     .iosiFont(size: .subheadline, weight: .regular)
                                 Text("Tamano máximo permitido de 10MB")
                                     .iosiFont(size: .footnote, weight: .bold)
-                                    .foregroundColor(colorScheme == .light ? Color.IosiColors.iosiNeutral50 : Color.IosiColors.iosiNeutral80)
+                                    .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .subtext))
                             }
                         }
+                        .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .text))
                         .onTapGesture {
                             self.openFile = true
                         }
                     } else {
                         VStack(alignment: .center ,spacing: 10) {
                             Text("Arquivo selecionado:")
+                                .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .text))
                                 .iosiFont(size: .subheadline, weight: .regular)
                             HStack(alignment: .center) {
                                 Image(systemName: IosiIcon.docTextFill.rawValue)
+                                    .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .text))
                                 Text(fileName.count == 1 ? fileName.first! : "\(fileName.count) arquivos selecionados.")
                                     .iosiFont(size: .body, weight: .bold)
                                 Spacer()
@@ -101,11 +105,11 @@ public struct FileField: View {
                                 } label: {
                                     ZStack {
                                         Circle()
-                                            .foregroundColor(Color.IosiColors.iosiNeutral90)
+                                            .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .onclick))
                                             .frame(width: 24, height: 24)
                                         Image(systemName: "xmark")
                                             .resizable()
-                                            .foregroundColor(Color.IosiColors.iosiNeutral50)
+                                            .foregroundColor(Color.IosiColors.fileFieldColors(colorScheme, for: .subtext))
                                             .frame(width: 8, height: 8)
                                             .fontWeight(.bold)
                                     }
@@ -117,7 +121,7 @@ public struct FileField: View {
                     }
                 }
             }
-            .foregroundColor(Color.IosiColors.getTextFieldColors(colorScheme: colorScheme, for: .label))
+            .foregroundColor(.gray)
             .fileImporter( isPresented: $openFile, allowedContentTypes: [.pdf, .image], allowsMultipleSelection: true, onCompletion: { result in
                 
                 
@@ -141,11 +145,11 @@ public struct FileField: View {
 }
 
 private struct CallToFileField: View {
-    @State var fileName: [String] = []
+    @State var fileName: [String] = [""]
     @State var fileData: [Data] = []
     var body: some View {
         VStack {
-            FileField(fileName: $fileName, fileData: $fileData, fileType: .pdf)
+            FileField(fileName: $fileName, fileData: $fileData, fileType: .pdf, colorScheme: .light)
                 .frame(width: 344, height: 170)
             
             Button {

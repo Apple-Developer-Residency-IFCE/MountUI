@@ -9,12 +9,13 @@ import SwiftUI
 
 struct Segment: View {
     
-    var label: String
-    var width: CGFloat
-    var index: Int
+    let label: String
+    let width: CGFloat
+    let letterWeight: Font.fontWeight
+    let index: Int
     
-    var color: Color
-    var bottomRectangleHeight: CGFloat
+    let color: Color
+    let bottomRectangleHeight: CGFloat
     
     @Binding var selectBinding: Int
     
@@ -25,11 +26,13 @@ struct Segment: View {
         self._selectBinding = selectBinding
         
         if selectBinding.wrappedValue == index {
-            color = Color.IosiColors.iosiPrimary10
+            color = Color.IosiColors.iosiPrimary70
             bottomRectangleHeight = 2
+            letterWeight = .bold
         } else {
             color = Color.IosiColors.iosiNeutral60
-            bottomRectangleHeight = 1
+            bottomRectangleHeight = 0.5
+            letterWeight = .regular
         }
         
     }
@@ -42,7 +45,7 @@ struct Segment: View {
                 VStack(spacing: 0) {
                     Rectangle()
                         .frame(width: width, height: 54 - bottomRectangleHeight)
-                        .foregroundColor(Color.IosiColors.iosiNeutral100)
+                        .foregroundColor(.clear)
                     
                     Rectangle()
                         .frame(width: width, height: bottomRectangleHeight)
@@ -50,6 +53,7 @@ struct Segment: View {
                 }
                 
                 Text(label)
+                    .iosiFont(size: .callout, weight: letterWeight)
                     .foregroundColor(color)
             }
         }
@@ -92,7 +96,9 @@ private struct content3: View {
     @State var screen: Int = 0
     
     var body: some View {
-        SegmentedController(titles: ["First", "Second", "Third", "Forth"], selectedScreen: $screen)
+        ZStack {
+            SegmentedController(titles: ["First", "Second", "Third", "Forth"], selectedScreen: $screen)
+        }
     }
 }
 
