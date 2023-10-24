@@ -34,6 +34,8 @@ public extension Color {
         public static func == (lhs: IosiColorScheme, rhs: IosiColorScheme) -> Bool {
             return lhs.rawValue == rhs.rawValue
         }
+
+        public static let allCases: [Color.IosiColorScheme] = [.light, .dark, .midTone, .system]
     }
 
     struct IosiColors {
