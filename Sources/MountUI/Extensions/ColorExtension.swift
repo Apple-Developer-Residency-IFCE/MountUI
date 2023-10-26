@@ -24,10 +24,20 @@ public extension Color {
             case .dark:
                 return .dark
             case .midTone:
-                fallthrough
+                return .dark
             case .system:
-                @Environment(\.colorScheme) var colorScheme: ColorScheme
-                return colorScheme
+                return .light
+            }
+        }
+
+        public static func fromColorschemeToIosi(_ from: ColorScheme) -> IosiColorScheme {
+            switch from {
+            case .light:
+                return .light
+            case .dark:
+                return .dark
+            @unknown default:
+                return .light
             }
         }
 
