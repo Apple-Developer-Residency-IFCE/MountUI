@@ -120,7 +120,10 @@ public extension Color {
         public static let iosiNeutral05 = Color(red: 0.07058823853731155, green: 0.07058823853731155, blue: 0.07058823853731155, opacity: 1)
         public static let iosiNeutralZero = Color(red: 0, green: 0, blue: 0, opacity: 1)
 
+        public static let iosiNearNeutral50 = Color(red: 0.24, green: 0.24, blue: 0.31, opacity: 1)
+        public static let iosiNearNeutral40 = Color(red: 0.15, green: 0.16, blue: 0.2, opacity: 1)
         public static let iosiNearNeutral30 = Color(red: 0.12156862765550613, green: 0.125490203499794, blue: 0.16078431904315948, opacity: 1)
+        public static let iosiNearNeutral20 = Color(red: 0.09, green: 0.09, blue: 0.12, opacity: 1)
         public static let iosiNearNeutral10 = Color(red: 0.07058823853731155, green: 0.07450980693101883, blue: 0.10196078568696976, opacity: 1)
 
         // MARK: - Gradientes
