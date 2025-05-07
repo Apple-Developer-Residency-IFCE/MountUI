@@ -15,6 +15,7 @@ public extension Font {
         case title1 = 28
         case title2 = 22
         case title3 = 20
+        case title4 = 24
         case headline = 18
         case body = 17
         case callout = 16
@@ -22,6 +23,7 @@ public extension Font {
         case footnote = 13
         case caption1 = 12
         case caption2 = 11
+        case caption3 = 14
     }
     
     enum fontWeight {
